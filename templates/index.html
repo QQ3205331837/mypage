@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国内旅游资讯 - 首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #1E90FF;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            color: #1E90FF;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .card-subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .status-bar {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background-color: #1E90FF;
+            border-color: #1E90FF;
+        }
+        .btn-primary:hover {
+            background-color: #4682B4;
+            border-color: #4682B4;
+        }
+        .btn-secondary {
+            background-color: #4682B4;
+            border-color: #4682B4;
+        }
+        .btn-secondary:hover {
+            background-color: #1E90FF;
+            border-color: #1E90FF;
+        }
+        .pagination {
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .source-selector {
+            margin-bottom: 20px;
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+        }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .header {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .card-title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">国内旅游资讯</h1>
+            
+            <!-- 网站选择器 -->
+            <div class="source-selector">
+                <form action="/" method="get" class="row g-3">
+                    <div class="col-md-4">
+                        <label for="website" class="form-label">资讯来源:</label>
+                        <select name="website" id="website" class="form-select" onchange="this.form.submit()">
+                            {% for site in websites %}
+                                <option value="{{ site }}" {% if site == current_website %}selected{% endif %}>{{ site }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- 搜索框 -->
+                    <div class="col-md-8">
+                        <label for="search" class="form-label">搜索:</label>
+                        <div class="input-group">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="输入关键词搜索资讯..." value="{{ search_text }}">
+                            <button type="submit" class="btn btn-primary">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <p class="text-center text-muted">当前显示: {{ current_website }} - 共 {{ news_count }} 条资讯</p>
+        </div>
+        
+        <!-- 新闻列表 -->
+        <div class="news-list">
+            {% if news_data %}
+                <div class="row">
+                    {% for news in news_data %}
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="/news_content/{{ loop.index0 }}?website={{ current_website }}" class="text-decoration-none" title="查看详情">{{ news.title }}</a>
+                                    </h5>
+                                    <h6 class="card-subtitle mb-2">
+                                        发布日期: {{ news.date }}
+                                    </h6>
+                                    <a href="/news_content/{{ loop.index0 }}?website={{ current_website }}" class="btn btn-primary">查看详情</a>
+                                    <a href="{{ news.link }}" target="_blank" class="btn btn-secondary ml-2">原文链接</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <h3 class="text-muted">暂无相关资讯</h3>
+                    {% if search_text %}
+                        <p class="text-muted mt-2">未找到包含 "{{ search_text }}" 的资讯</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <span>数据更新时间: {{ now.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+            <span class="float-end">来源网站: {{ current_website }}</span>
+        </div>
+    </div>
+    
+    <!-- Bootstrap 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 添加日期过滤器支持
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动效果
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

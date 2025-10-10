@@ -115,9 +115,15 @@
             </div>
         </div>
         
-        <!-- 返回按钮 -->
-        <div class="back-button">
+        <!-- 返回与前后导航 -->
+        <div class="back-button d-flex gap-2">
             <a href="/?website={{ current_website }}" class="btn btn-secondary">返回列表</a>
+            {% if prev_id is not none %}
+            <a href="/news_content/{{ prev_id }}?website={{ current_website }}" class="btn btn-outline-primary">上一条</a>
+            {% endif %}
+            {% if next_id is not none %}
+            <a href="/news_content/{{ next_id }}?website={{ current_website }}" class="btn btn-outline-primary">下一条</a>
+            {% endif %}
         </div>
         
         <!-- 新闻内容 -->

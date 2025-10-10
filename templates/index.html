@@ -6,6 +6,7 @@
     <title>国内旅游资讯 - 首页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <style>
         body {
             background-color: #f8f9fa;
@@ -128,9 +129,25 @@
                     <div class="col-md-8">
                         <label for="search" class="form-label">搜索:</label>
                         <div class="input-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="输入关键词搜索资讯..." value="{{ search_text }}">
-                            <button type="submit" class="btn btn-primary">搜索</button>
+                            <input type="text" name="search" id="search" class="form-control" placeholder="输入关键词搜索资讯... (Ctrl+K)" value="{{ search_text }}">
+                            <button type="submit" class="btn btn-primary" id="searchBtn">
+                                <span class="btn-text">搜索</span>
+                                <span class="spinner-border spinner-border-sm d-none" id="searchSpinner" role="status"></span>
+                            </button>
                         </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">多来源聚合（可多选）:</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            {% for site in websites if site != '全部来源' %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{ site }}" id="src-{{ loop.index }}">
+                                <label class="form-check-label" for="src-{{ loop.index }}">{{ site }}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" name="sources" id="sourcesHidden" value="{{ selected_sources }}">
+                        <div class="form-text">选择两个及以上来源将忽略上方单一来源选择。</div>
                     </div>
                 </form>
             </div>
@@ -140,6 +157,21 @@
         
         <!-- 新闻列表 -->
         <div class="news-list">
+            <!-- 指标徽章 -->
+            <div class="mb-2 d-flex align-items-center gap-2 flex-wrap">
+                <span class="badge bg-secondary">总数: {{ news_count }}</span>
+                {% if metrics %}
+                <span class="badge bg-info text-dark" id="badge-ts" data-ts="{{ metrics.ts | int }}">抓取时间: {{ metrics.ts | int }}</span>
+                <span class="badge bg-success">耗时: {{ metrics.duration_ms }}ms</span>
+                {% endif %}
+                {% if news_count == 0 %}
+                <span class="badge bg-warning text-dark">⚠️ 无数据，请检查网络或稍后重试</span>
+                {% endif %}
+                <div class="form-check form-switch ms-auto">
+                    <input class="form-check-input" type="checkbox" role="switch" id="autoRefreshSwitch">
+                    <label class="form-check-label" for="autoRefreshSwitch">5分钟自动刷新</label>
+                </div>
+            </div>
             {% if news_data %}
                 <div class="row">
                     {% for news in news_data %}
@@ -147,9 +179,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <a href="/news_content/{{ loop.index0 }}?website={{ current_website }}" class="text-decoration-none" title="查看详情">{{ news.title }}</a>
+                                        <a href="/news_content/{{ loop.index0 }}?website={{ current_website }}" class="text-decoration-none" title="查看详情">{{ news.title | highlight(search_text) }}</a>
                                     </h5>
                                     <h6 class="card-subtitle mb-2">
+                                        <span class="badge me-1 badge-source-{{ news.source }}">{{ news.source }}</span>
                                         发布日期: {{ news.date }}
                                     </h6>
                                     <a href="/news_content/{{ loop.index0 }}?website={{ current_website }}" class="btn btn-primary">查看详情</a>
@@ -159,6 +192,25 @@
                         </div>
                     {% endfor %}
                 </div>
+                <div class="d-flex justify-content-end mb-2 gap-2">
+                    <div class="btn-group" role="group" aria-label="exports">
+                        <a class="btn btn-outline-secondary btn-sm" id="exportJson" href="#">导出JSON</a>
+                        <a class="btn btn-outline-secondary btn-sm" id="exportCsv" href="#">导出CSV</a>
+                    </div>
+                    <a class="btn btn-outline-primary btn-sm" id="rssBtn" href="#">RSS订阅</a>
+                </div>
+                <!-- 分页控件 -->
+                <nav aria-label="pagination" class="mt-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+                            <a class="page-link" href="/?website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page-1 }}&page_size={{ page_size }}">上一页</a>
+                        </li>
+                        <li class="page-item disabled"><a class="page-link" href="#">{{ page }}/{{ total_pages }}</a></li>
+                        <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
+                            <a class="page-link" href="/?website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page+1 }}&page_size={{ page_size }}">下一页</a>
+                        </li>
+                    </ul>
+                </nav>
             {% else %}
                 <div class="text-center py-5">
                     <h3 class="text-muted">暂无相关资讯</h3>
@@ -171,7 +223,7 @@
         
         <!-- 状态栏 -->
         <div class="status-bar">
-            <span>数据更新时间: {{ now.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+            <span>页面时间: {{ now.strftime('%Y-%m-%d %H:%M:%S') }}</span>
             <span class="float-end">来源网站: {{ current_website }}</span>
         </div>
     </div>
@@ -179,8 +231,128 @@
     <!-- Bootstrap 脚本 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // 暗黑模式
+        (function(){
+            const key = 'theme-mode';
+            const root = document.documentElement;
+            function apply(mode){
+                if(mode==='dark'){
+                    root.setAttribute('data-bs-theme','dark');
+                    document.body.classList.add('bg-dark','text-light');
+                }else{
+                    root.removeAttribute('data-bs-theme');
+                    document.body.classList.remove('bg-dark','text-light');
+                }
+            }
+            const init = localStorage.getItem(key) || 'light';
+            apply(init);
+            window.toggleTheme = function(){
+                const cur = localStorage.getItem(key) || 'light';
+                const next = cur==='light' ? 'dark' : 'light';
+                localStorage.setItem(key,next);
+                apply(next);
+            }
+        })();
+        // 抓取时间戳 -> 本地时间
+        (function(){
+            const el = document.getElementById('badge-ts');
+            if(!el) return;
+            const ts = parseInt(el.dataset.ts, 10) * 1000;
+            if(Number.isFinite(ts)){
+                const d = new Date(ts);
+                const s = d.toLocaleString();
+                el.textContent = '抓取时间: ' + s;
+            }
+        })();
+        // 自动刷新
+        (function(){
+            const key = 'auto-refresh-enabled';
+            const sw = document.getElementById('autoRefreshSwitch');
+            if(!sw) return;
+            function schedule(){
+                if(sw.checked){
+                    // 5分钟后刷新并保留查询参数
+                    setTimeout(()=>{ location.reload(); }, 5*60*1000);
+                }
+            }
+            sw.checked = (localStorage.getItem(key) === '1');
+            sw.addEventListener('change', ()=>{
+                localStorage.setItem(key, sw.checked ? '1' : '0');
+                schedule();
+            });
+            schedule();
+        })();
         // 添加日期过滤器支持
         document.addEventListener('DOMContentLoaded', function() {
+            // 表单提交时显示加载状态
+            const form = document.querySelector('form');
+            const searchBtn = document.getElementById('searchBtn');
+            const searchSpinner = document.getElementById('searchSpinner');
+            const btnText = document.querySelector('.btn-text');
+            
+            if (form && searchBtn) {
+                form.addEventListener('submit', function() {
+                    searchBtn.disabled = true;
+                    btnText.textContent = '搜索中...';
+                    searchSpinner.classList.remove('d-none');
+                });
+            }
+
+            // 初始化多选sources
+            const hidden = document.getElementById('sourcesHidden');
+            const selected = (hidden?.value || '').split(',').map(s=>s.trim()).filter(Boolean);
+            document.querySelectorAll('[id^="src-"]').forEach(cb=>{
+                if(selected.includes(cb.value)) cb.checked = true;
+                cb.addEventListener('change', ()=>{
+                    const vals = Array.from(document.querySelectorAll('[id^="src-"]:checked')).map(x=>x.value);
+                    hidden.value = vals.join(',');
+                });
+            });
+
+            function buildQuery(extra){
+                const params = new URLSearchParams(window.location.search);
+                const formVals = {
+                    website: document.getElementById('website').value,
+                    search: document.getElementById('search').value,
+                    page_size: '{{ page_size }}',
+                    sources: hidden.value
+                };
+                Object.entries(formVals).forEach(([k,v])=>{ if(v!==undefined && v!==null) params.set(k, v); });
+                if(extra) Object.entries(extra).forEach(([k,v])=> params.set(k, v));
+                return params.toString();
+            }
+
+            // 分页链接带sources
+            const prev = document.getElementById('prevPage');
+            const next = document.getElementById('nextPage');
+            if(prev) prev.href = '/?' + buildQuery({ page: Math.max(1, {{ page }} - 1) });
+            if(next) next.href = '/?' + buildQuery({ page: Math.min({{ total_pages }}, {{ page }} + 1) });
+
+            // 导出链接带sources
+            const exJ = document.getElementById('exportJson');
+            const exC = document.getElementById('exportCsv');
+            if(exJ) exJ.href = '/export?' + buildQuery({ format: 'json' });
+            if(exC) exC.href = '/export?' + buildQuery({ format: 'csv' });
+            // RSS 订阅按钮
+            const rss = document.getElementById('rssBtn');
+            if(rss) rss.href = '/feed.xml?' + buildQuery({});
+            // 在右上角添加暗黑模式按钮
+            const btn = document.createElement('button');
+            btn.className = 'btn btn-outline-secondary btn-sm position-fixed';
+            btn.style.right = '12px';
+            btn.style.bottom = '12px';
+            btn.textContent = '暗黑模式';
+            btn.onclick = () => window.toggleTheme();
+            document.body.appendChild(btn);
+
+            // 键盘快捷键支持
+            document.addEventListener('keydown', function(e) {
+                // Ctrl+K 或 Cmd+K 聚焦搜索框
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.getElementById('search').focus();
+                }
+            });
             // 平滑滚动效果
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {

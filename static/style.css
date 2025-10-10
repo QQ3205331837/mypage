@@ -232,3 +232,8 @@ a:hover {
     color: #4682B4;
     text-decoration: underline;
 }
+
+/* 来源徽章按来源着色（简易） */
+.badge-source-人民网旅游频道 { background-color: #e7f1ff; color: #0b5ed7; }
+.badge-source-中国旅游新闻网 { background-color: #fff4e5; color: #b85c00; }
+.badge-source-央广网文旅频道 { background-color: #eaf7f0; color: #1e7e34; }

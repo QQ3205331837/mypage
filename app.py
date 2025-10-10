@@ -1,12 +1,36 @@
 from flask import Flask, render_template, request, jsonify
+from flask import Response
+import csv
+import io
 import requests
 import os
+import time
+import random
 from urllib.parse import quote_plus
+from collections import defaultdict
 from bs4 import BeautifulSoup
 from datetime import datetime
 import re
+from markupsafe import Markup
 
 app = Flask(__name__)
+
+# 简单内存缓存：key=(website), value={"data": list, "ts": epoch_seconds}
+CACHE_TTL_SECONDS = 600  # 10分钟
+_cache = {}
+
+# 观测：抓取指标与错误日志（内存）
+_metrics = {
+    'last_fetch': {},  # website -> {ts, duration_ms, count}
+}
+_errors = []  # [{ts, website, stage, message}]
+
+def _check_admin_key():
+    expected = os.environ.get('ADMIN_KEY', '').strip()
+    if not expected:
+        return True  # 未设置即不鉴权
+    supplied = request.args.get('key') or request.headers.get('X-Admin-Key')
+    return supplied == expected
 
 # 网站配置信息
 websites = {
@@ -34,33 +58,110 @@ websites = {
     }
 }
 
+ALL_SOURCES_LABEL = "全部来源"
+
 @app.route('/')
 def index():
     # 默认显示人民网旅游频道的新闻
     website = request.args.get('website', '人民网旅游频道')
+    sources_str = request.args.get('sources', '').strip()
+    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
     search_text = request.args.get('search', '')
     
-    # 获取新闻数据
-    news_data = fetch_news(website)
+    # 支持强制刷新 ?refresh=1
+    refresh = request.args.get('refresh', '0') == '1'
+    # 获取新闻数据（带缓存），支持聚合与多来源选择
+    if selected_sources:
+        valid_sources = [s for s in selected_sources if s in websites]
+        aggregated = []
+        for site in valid_sources:
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        # 去重（按链接）
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = deduped
+    elif website == ALL_SOURCES_LABEL:
+        # 聚合所有来源
+        aggregated = []
+        for site in websites.keys():
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        # 去重（按链接）
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        # 按日期倒序
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = deduped
+    else:
+        news_data = get_news_with_cache(website, force_refresh=refresh)
     
-    # 如果有搜索关键词，过滤新闻
-    if search_text:
-        filtered_news = []
-        for news in news_data:
-            if search_text.lower() in news['title'].lower():
-                filtered_news.append(news)
-        news_data = filtered_news
+    # 公共过滤
+    news_data = filter_news(news_data, search_text)
     
     # 获取当前时间
     now = datetime.now()
     
+    # 分页参数
+    try:
+        page = int(request.args.get('page', '1'))
+        page_size = int(request.args.get('page_size', '12'))
+        page = max(page, 1)
+        page_size = max(min(page_size, 30), 6)
+    except Exception:
+        page, page_size = 1, 12
+
+    start = (page - 1) * page_size
+    end = start + page_size
+    paged_news = news_data[start:end]
+    total_pages = max((len(news_data) + page_size - 1) // page_size, 1)
+
     return render_template('index.html', 
-                          news_data=news_data, 
-                          websites=list(websites.keys()), 
+                          news_data=paged_news, 
+                          websites=[ALL_SOURCES_LABEL] + list(websites.keys()), 
                           current_website=website,
                           search_text=search_text,
+                          selected_sources=','.join(selected_sources),
                           news_count=len(news_data),
-                          now=now)
+                          page=page,
+                          page_size=page_size,
+                          total_pages=total_pages,
+                          now=now,
+                          metrics=_metrics['last_fetch'].get(website if website != ALL_SOURCES_LABEL else '聚合', None))
+
+def filter_news(news_data, search_text):
+    # 关键词过滤
+    if search_text:
+        filtered_news = []
+        for news in news_data:
+            if search_text.lower() in str(news.get('title','')).lower():
+                filtered_news.append(news)
+        news_data = filtered_news
+    
+    # 若有搜索词，进行命中优先排序：完全命中 > 子串命中；同组按日期倒序
+    if search_text:
+        s = search_text.lower()
+        def score(item):
+            title = str(item.get('title',''))
+            tl = title.lower()
+            exact = 1 if tl == s else 0
+            contains = 1 if s in tl else 0
+            # 更高的元组将排前（Python默认从前到后比较）
+            return (exact, contains, str(item.get('date','')))
+        news_data.sort(key=score, reverse=True)
+    else:
+        # 默认按日期倒序
+        news_data.sort(key=lambda x: str(x.get('date','')), reverse=True)
+    return news_data
 
 @app.route('/news_content/<int:news_id>')
 def news_content(news_id):
@@ -74,18 +175,209 @@ def news_content(news_id):
         # 获取详细内容
         content = get_news_content(news_item['link'], website)
         news_item['content'] = content
+        prev_id = news_id - 1 if news_id - 1 >= 0 else None
+        next_id = news_id + 1 if news_id + 1 < len(news_data) else None
         return render_template('news_content.html', 
                               news_item=news_item, 
                               websites=list(websites.keys()),
-                              current_website=website)
+                              current_website=website,
+                              prev_id=prev_id,
+                              next_id=next_id)
     else:
         return "新闻不存在", 404
 
 @app.route('/fetch_news')
 def api_fetch_news():
     website = request.args.get('website', '人民网旅游频道')
-    news_data = fetch_news(website)
+    refresh = request.args.get('refresh', '0') == '1'
+    search_text = request.args.get('search', '')
+    sources_str = request.args.get('sources', '').strip()
+    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
+    if selected_sources:
+        valid_sources = [s for s in selected_sources if s in websites]
+        aggregated = []
+        for site in valid_sources:
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = filter_news(deduped, search_text, start_date_str, end_date_str)
+    elif website == ALL_SOURCES_LABEL:
+        aggregated = []
+        for site in websites.keys():
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = filter_news(deduped, search_text)
+    else:
+        news_data = filter_news(get_news_with_cache(website, force_refresh=refresh), search_text)
     return jsonify(news_data)
+
+@app.route('/export')
+def export_data():
+    website = request.args.get('website', ALL_SOURCES_LABEL)
+    fmt = request.args.get('format', 'json').lower()
+    refresh = request.args.get('refresh', '0') == '1'
+    search_text = request.args.get('search', '')
+    sources_str = request.args.get('sources', '').strip()
+    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
+    # 复用聚合逻辑
+    if selected_sources:
+        valid_sources = [s for s in selected_sources if s in websites]
+        aggregated = []
+        for site in valid_sources:
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        data = filter_news(deduped, search_text, start_date_str, end_date_str)
+    elif website == ALL_SOURCES_LABEL:
+        aggregated = []
+        for site in websites.keys():
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        data = filter_news(deduped, search_text)
+    else:
+        data = filter_news(get_news_with_cache(website, force_refresh=refresh), search_text)
+
+    if fmt == 'csv':
+        output = io.StringIO()
+        writer = csv.DictWriter(output, fieldnames=['title', 'link', 'source', 'date'])
+        writer.writeheader()
+        for row in data:
+            writer.writerow({
+                'title': row.get('title', ''),
+                'link': row.get('link', ''),
+                'source': row.get('source', ''),
+                'date': row.get('date', ''),
+            })
+        resp = Response(output.getvalue(), mimetype='text/csv; charset=utf-8')
+        resp.headers['Content-Disposition'] = 'attachment; filename="news.csv"'
+        return resp
+    else:
+        return jsonify(data)
+
+@app.route('/feed.xml')
+def rss_feed():
+    website = request.args.get('website', ALL_SOURCES_LABEL)
+    refresh = request.args.get('refresh', '0') == '1'
+    search_text = request.args.get('search', '')
+    sources_str = request.args.get('sources', '').strip()
+    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
+
+    # 数据获取与筛选（复用现有逻辑）
+    if selected_sources:
+        valid_sources = [s for s in selected_sources if s in websites]
+        aggregated = []
+        for site in valid_sources:
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        data = filter_news(deduped, search_text, start_date_str, end_date_str)
+    elif website == ALL_SOURCES_LABEL:
+        aggregated = []
+        for site in websites.keys():
+            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        data = filter_news(deduped, search_text)
+    else:
+        data = filter_news(get_news_with_cache(website, force_refresh=refresh), search_text)
+
+    # 生成 RSS 2.0
+    base = request.url_root.rstrip('/')
+    title = f"国内旅游资讯 - {website if not selected_sources else ','.join(selected_sources)}"
+    feed_items = []
+    for item in data[:50]:
+        t = (item.get('title') or '').replace('&', '&amp;')
+        l = (item.get('link') or '').replace('&', '&amp;')
+        d = (item.get('date') or '')
+        feed_items.append(f"""
+    <item>
+      <title>{t}</title>
+      <link>{l}</link>
+      <guid isPermaLink="true">{l}</guid>
+      <pubDate>{d}</pubDate>
+      <description><![CDATA[{t}]]></description>
+    </item>
+""")
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{title}</title>
+    <link>{base}/</link>
+    <description>按当前筛选生成的资讯订阅</description>
+    {''.join(feed_items)}
+  </channel>
+</rss>
+"""
+    return Response(rss, mimetype='application/rss+xml; charset=utf-8')
+
+def get_news_with_cache(website, force_refresh=False):
+    now = time.time()
+    cache_entry = _cache.get(website)
+    if not force_refresh and cache_entry and (now - cache_entry["ts"]) < CACHE_TTL_SECONDS:
+        return cache_entry["data"]
+    t0 = time.time()
+    data = fetch_news(website)
+    t1 = time.time()
+    _cache[website] = {"data": data, "ts": now}
+    # 记录指标
+    _metrics['last_fetch'][website] = {
+        'ts': int(now),
+        'duration_ms': int((t1 - t0) * 1000),
+        'count': len(data),
+    }
+    return data
+
+def get_default_headers():
+    return {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+        ),
+        "Accept": (
+            "text/html,application/xhtml+xml,application/xml;q=0.9,"
+            "image/avif,image/webp,*/*;q=0.8"
+        ),
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        "Cache-Control": "no-cache",
+    }
 
 def fetch_url(url, headers=None, timeout=10):
     """统一的HTTP获取函数；如设置了PROXY_BASE则经由代理。
@@ -100,6 +392,24 @@ def fetch_url(url, headers=None, timeout=10):
         proxy_base = proxy_base.rstrip('/')
         target = f"{proxy_base}?url={quote_plus(url)}"
     return requests.get(target, headers=headers, timeout=timeout)
+
+def fetch_url_with_retries(url, headers=None, timeout=10, retries=3):
+    last_exc = None
+    for attempt in range(retries):
+        try:
+            resp = fetch_url(url, headers=headers or get_default_headers(), timeout=timeout)
+            if resp.status_code == 200 and resp.text:
+                return resp
+            # 对于非常短的响应或临时错误，触发重试
+        except Exception as exc:
+            last_exc = exc
+        # 指数退避 + 轻微抖动
+        backoff_ms = (2 ** attempt) * 0.3 + random.uniform(0.05, 0.2)
+        time.sleep(backoff_ms)
+    # 最后一次尝试，直接抛出或返回占位响应
+    if last_exc:
+        raise last_exc
+    return fetch_url(url, headers=headers or get_default_headers(), timeout=timeout)
 
 def fetch_news(website):
     """获取选定网站的最新资讯"""
@@ -117,14 +427,31 @@ def fetch_news(website):
     
     try:
         # 设置请求头，模拟浏览器
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6"
-        }
+        headers = get_default_headers()
         
-        # 发送请求
-        response = fetch_url(url, headers=headers, timeout=10)
+        # 发送请求（对中国旅游新闻网增加回退URL以提升成功率）
+        candidate_urls = [url]
+        if website == "中国旅游新闻网":
+            candidate_urls.extend([
+                "https://www.ctnews.com.cn/jujiao/",  # 栏目页
+                "https://www.ctnews.com.cn/",         # 首页
+            ])
+        response = None
+        for cand in candidate_urls:
+            try:
+                response = fetch_url_with_retries(cand, headers=headers, timeout=10, retries=3)
+                if response and response.status_code == 200 and response.text and len(response.text) > 1000:
+                    print(f"成功抓取 {website} 从 {cand}, 内容长度: {len(response.text)}")
+                    break
+                else:
+                    print(f"抓取失败 {website} 从 {cand}, 状态码: {response.status_code if response else 'None'}")
+            except Exception as e:
+                print(f"抓取异常 {website} 从 {cand}: {str(e)}")
+                response = None
+                continue
+        if response is None:
+            print(f"所有URL都失败 {website}")
+            return []
         
         # 根据不同网站设置不同的编码策略
         if website == "央广网文旅频道":
@@ -140,6 +467,9 @@ def fetch_news(website):
                     response.encoding = "gbk"
             except Exception:
                 response.encoding = "gbk"  # 默认为GBK
+        elif website == "中国旅游新闻网":
+            # 中国旅游新闻网使用UTF-8编码
+            response.encoding = "utf-8"
         else:
             # 其他网站使用UTF-8或自动检测
             response.encoding = response.apparent_encoding
@@ -151,23 +481,55 @@ def fetch_news(website):
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # 获取标题和链接 - 支持单个选择器或选择器列表
-        news_items = []
+        selectors = []
         if isinstance(link_css, list):
-            for css in link_css:
-                css_links = soup.select(css)
-                news_items.extend(css_links)
+            selectors.extend(link_css)
         else:
-            news_items = soup.select(link_css)
+            selectors.append(link_css)
+
+        # 根据站点追加备用选择器以提升成功率
+        if website == "人民网旅游频道":
+            selectors.extend([
+                'a[href*="/n1/"]',
+                'div.ej_list_box a',
+                'div.box a',
+                'div.list_box a',
+            ])
+        if website == "中国旅游新闻网":
+            selectors.extend([
+                'a[href*="/content/"]',
+                'div.list a[href*="/content/"]',
+                'div.article-list a[href*="/content/"]',
+                'ul li a[href*="/content/"]',
+                'section a[href*="/content/"]',
+            ])
+
+        news_items = []
+        for css in selectors:
+            try:
+                css_links = soup.select(css)
+                if css_links:
+                    print(f"选择器 {css} 匹配到 {len(css_links)} 个链接")
+                    news_items.extend(css_links)
+                else:
+                    print(f"选择器 {css} 未匹配到链接")
+            except Exception as e:
+                print(f"选择器 {css} 异常: {str(e)}")
+                continue
         
-        # 去重处理
-        seen_hrefs = set()
-        unique_items = []
+        print(f"总共找到 {len(news_items)} 个链接元素")
+        
+        # 去重处理，优先保留有文本内容的链接
+        seen_hrefs = {}
         for item in news_items:
             href = item.get('href', '')
-            if href and href not in seen_hrefs:
-                seen_hrefs.add(href)
-                unique_items.append(item)
-        news_items = unique_items
+            if href:
+                text = item.text.strip() if item.text else ""
+                # 如果这个链接还没有记录，或者新链接有文本而旧链接没有文本
+                if href not in seen_hrefs or (text and not seen_hrefs[href].text.strip()):
+                    seen_hrefs[href] = item
+        
+        news_items = list(seen_hrefs.values())
         
         # 根据不同网站调整过滤策略
         if website == "中国旅游新闻网":
@@ -227,6 +589,7 @@ def fetch_news(website):
             
             # 跳过无效标题和链接
             if not title or len(title) < 5 or not link:
+                print(f"跳过无效项: 标题='{title[:30]}', 链接='{link[:50]}'")
                 continue
             
             # 确保链接不是None
@@ -312,12 +675,27 @@ def fetch_news(website):
             if len(news_data) >= 50:
                 break
         
+        print(f"处理完成后得到 {len(news_data)} 条新闻")
+        
     except Exception as e:
-        print(f"获取资讯失败: {str(e)}")
+        error_msg = str(e)
+        print(f"获取资讯失败: {error_msg}")
+        try:
+            _errors.append({
+                'ts': int(time.time()),
+                'website': website,
+                'stage': 'fetch_news',
+                'message': error_msg,
+            })
+        except Exception:
+            pass
+        # 返回空列表而不是崩溃
+        return []
         
     # 按日期排序，最新的在前
     news_data.sort(key=lambda x: x['date'], reverse=True)
     
+    print(f"最终返回 {len(news_data)} 条新闻")
     return news_data
 
 def extract_date_from_link(link, website):
@@ -367,7 +745,7 @@ def get_news_content(link, website):
         }
         
         # 请求新闻详情页
-        response = fetch_url(link, headers=headers, timeout=10)
+        response = fetch_url_with_retries(link, headers=headers, timeout=10, retries=3)
         
         # 尝试不同的编码方式解决乱码问题
         if website == "央广网文旅频道":
@@ -475,6 +853,72 @@ def get_news_content(link, website):
         
     except Exception as e:
         return f"加载内容失败: {str(e)}"
+
+@app.route('/healthz')
+def healthz():
+    return jsonify({"status": "ok", "proxy": bool(os.environ.get('PROXY_BASE'))})
+
+@app.route('/favicon.ico')
+def favicon():
+    # 避免日志里出现对favicon的错误请求
+    return ('', 204)
+
+@app.route('/metrics')
+def metrics():
+    if not _check_admin_key():
+        return jsonify({'error': 'unauthorized'}), 401
+    return jsonify(_metrics)
+
+@app.route('/logs')
+def logs():
+    if not _check_admin_key():
+        return jsonify({'error': 'unauthorized'}), 401
+    limit = int(request.args.get('limit', '100'))
+    return jsonify(_errors[-limit:])
+
+@app.route('/clear_cache', methods=['POST', 'GET'])
+def clear_cache():
+    if not _check_admin_key():
+        return jsonify({'error': 'unauthorized'}), 401
+    _cache.clear()
+    return jsonify({'ok': True})
+
+# --- UI helpers ---
+@app.template_filter('highlight')
+def highlight_filter(text, keyword):
+    if not text or not keyword:
+        return text
+    try:
+        pattern = re.compile(re.escape(keyword), re.IGNORECASE)
+        return Markup(pattern.sub(lambda m: f'<mark>{m.group(0)}</mark>', str(text)))
+    except Exception:
+        return text
+
+# --- SEO ---
+@app.route('/robots.txt')
+def robots_txt():
+    base = request.url_root.rstrip('/')
+    body = f"""User-agent: *
+Allow: /
+Sitemap: {base}/sitemap.xml
+"""
+    return Response(body, mimetype='text/plain; charset=utf-8')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    base = request.url_root.rstrip('/')
+    urls = [
+        f"{base}/",
+        f"{base}/?website=全部来源",
+    ]
+    for site in websites.keys():
+        urls.append(f"{base}/?website={site}")
+    xml_urls = "".join([f"<url><loc>{u}</loc></url>" for u in urls])
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{xml_urls}
+</urlset>"""
+    return Response(xml, mimetype='application/xml; charset=utf-8')
 # 本地运行入口点
 if __name__ == '__main__':
     # 确保中文正常显示

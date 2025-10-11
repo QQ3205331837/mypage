@@ -24,7 +24,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 # 简单内存缓存：key=(website), value={"data": list, "ts": epoch_seconds}
 CACHE_TTL_SECONDS = 600  # 10分钟

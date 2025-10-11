@@ -333,8 +333,8 @@
             if(prev && next) {
                 const currentPage = parseInt('{{ page }}') || 1;
                 const totalPages = parseInt('{{ total_pages }}') || 1;
-                if(prev) prev.href = '/?' + buildQuery({ page: Math.max(1, currentPage - 1) });
-                if(next) next.href = '/?' + buildQuery({ page: Math.min(totalPages, currentPage + 1) });
+                if(prev && prev.href !== undefined) prev.href = '/?' + buildQuery({ page: Math.max(1, currentPage - 1) });
+                if(next && next.href !== undefined) next.href = '/?' + buildQuery({ page: Math.min(totalPages, currentPage + 1) });
             }
 
             // 导出链接带sources

@@ -14,13 +14,12 @@ import re
 from markupsafe import Markup
 import logging
 
-# 配置日志
+# 配置日志 - 适配Vercel只读文件系统
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("app_debug.log"),
-        logging.StreamHandler()
+        logging.StreamHandler()  # 只使用控制台输出，避免文件写入
     ]
 )
 logger = logging.getLogger(__name__)
@@ -360,7 +359,7 @@ def api_fetch_news():
                 seen.add(link)
                 deduped.append(item)
         deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
-        news_data = filter_news(deduped, search_text, start_date_str, end_date_str)
+        news_data = filter_news(deduped, search_text)
     elif website == ALL_SOURCES_LABEL:
         aggregated = []
         for site in websites.keys():
@@ -759,7 +758,7 @@ def fetch_news(website):
             # 修复可能的重复base_url问题
             try:
                 # 处理多种可能的重复格式
-                if link.startswith(base_url + base_url):
+                if isinstance(link, str) and isinstance(base_url, str) and link.startswith(base_url + base_url):
                     link = link.replace(base_url + base_url, base_url)
                 # 处理可能的双斜杠问题
                 if '//' in link and link.startswith('http'):

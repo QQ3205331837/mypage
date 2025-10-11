@@ -12,6 +12,18 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 from markupsafe import Markup
+import logging
+
+# 配置日志
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app_debug.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -104,7 +116,17 @@ def index():
         news_data = deduped
     else:
         news_data = get_news_with_cache(website, force_refresh=refresh)
-    
+
+    # 去重（按链接），即使是单个网站也可能有重复
+    seen = set()
+    deduped = []
+    for item in news_data:
+        link = item.get('link')
+        if link and link not in seen:
+            seen.add(link)
+            deduped.append(item)
+    news_data = deduped
+
     # 公共过滤
     news_data = filter_news(news_data, search_text)
     
@@ -139,16 +161,22 @@ def index():
                           metrics=_metrics['last_fetch'].get(website if website != ALL_SOURCES_LABEL else '聚合', None))
 
 def filter_news(news_data, search_text):
+    # 添加过滤前后的日志
+    logger.debug(f"Before filter - News count: {len(news_data)}")
+    
     # 关键词过滤
     if search_text:
+        logger.debug(f"Applying search filter: '{search_text}'")
         filtered_news = []
         for news in news_data:
             if search_text.lower() in str(news.get('title','')).lower():
                 filtered_news.append(news)
         news_data = filtered_news
+        logger.debug(f"After text filter - News count: {len(news_data)}")
     
     # 若有搜索词，进行命中优先排序：完全命中 > 子串命中；同组按日期倒序
     if search_text:
+        logger.debug(f"Sorting with search priority")
         s = search_text.lower()
         def score(item):
             title = str(item.get('title',''))
@@ -160,31 +188,157 @@ def filter_news(news_data, search_text):
         news_data.sort(key=score, reverse=True)
     else:
         # 默认按日期倒序
+        logger.debug("Sorting by date descending")
         news_data.sort(key=lambda x: str(x.get('date','')), reverse=True)
+    
+    # 记录前5条新闻的标题
+    if len(news_data) > 0:
+        logger.debug("Top 5 news after filter and sort:")
+        for i in range(min(5, len(news_data))):
+            logger.debug(f"{i+1}. {news_data[i].get('title', 'No title')}")
+    
     return news_data
 
-@app.route('/news_content/<int:news_id>')
-def news_content(news_id):
+@app.route('/news_content')
+def news_content():
+    link = request.args.get('link')
+    if not link:
+        return "缺少链接参数", 400
     website = request.args.get('website', '人民网旅游频道')
+    search_text = request.args.get('search', '')
     
-    # 重新获取新闻数据以确保一致性
-    news_data = fetch_news(website)
+    # 重新获取新闻数据以确保一致性，与index函数保持相同的逻辑
+    sources_str = request.args.get('sources', '').strip()
+    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
     
-    if 0 <= news_id < len(news_data):
-        news_item = news_data[news_id]
-        # 获取详细内容
-        content = get_news_content(news_item['link'], website)
-        news_item['content'] = content
-        prev_id = news_id - 1 if news_id - 1 >= 0 else None
-        next_id = news_id + 1 if news_id + 1 < len(news_data) else None
-        return render_template('news_content.html', 
-                              news_item=news_item, 
-                              websites=list(websites.keys()),
-                              current_website=website,
-                              prev_id=prev_id,
-                              next_id=next_id)
+    if selected_sources:
+        # 多来源选择
+        valid_sources = [s for s in selected_sources if s in websites]
+        aggregated = []
+        for site in valid_sources:
+            aggregated.extend(get_news_with_cache(site))
+        # 去重并排序
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            item_link = item.get('link')
+            if item_link and item_link not in seen:
+                seen.add(item_link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = deduped
+    elif website == ALL_SOURCES_LABEL:
+        # 对于"全部来源"，需要聚合所有网站的新闻数据
+        aggregated = []
+        for site in websites.keys():
+            aggregated.extend(get_news_with_cache(site))
+        # 去重并排序
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            item_link = item.get('link')
+            if item_link and item_link not in seen:
+                seen.add(item_link)
+                deduped.append(item)
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        news_data = deduped
     else:
+        # 对于单个网站，使用与index函数相同的方式获取数据
+        news_data = get_news_with_cache(website)
+
+    # 去重（按链接），即使是单个网站也可能有重复
+    seen = set()
+    deduped = []
+    for item in news_data:
+        item_link = item.get('link')
+        if item_link and item_link not in seen:
+            seen.add(item_link)
+            deduped.append(item)
+    news_data = deduped
+
+    # 应用与index函数相同的过滤逻辑
+    news_data = filter_news(news_data, search_text)
+    
+    # 支持分页参数
+    page = request.args.get('page', '1')
+    page_size = request.args.get('page_size', '12')
+    try:
+        page = int(page)
+        page_size = int(page_size)
+        page = max(page, 1)
+        page_size = max(min(page_size, 30), 6)
+    except Exception:
+        page, page_size = 1, 12
+        
+    # 计算当前页的起始和结束索引
+    start_index = (page - 1) * page_size
+    end_index = start_index + page_size
+    
+    # 根据分页参数截取当前页的新闻数据
+    paged_news_data = news_data[start_index:end_index]
+    
+    # Find the news item by link
+    print(f"\n=== NEWS CONTENT DEBUG INFO ===")
+    print(f"Searching for news with link: {link}")
+    print(f"Total news items after filtering: {len(news_data)}")
+    print(f"Current page: {page}, page size: {page_size}")
+    print(f"Page range: {start_index}-{end_index}")
+    print(f"News items on current page: {len(paged_news_data)}")
+    print(f"=== END DEBUG INFO ===\n")
+    
+    news_item = None
+    global_index = None
+    
+    # 直接在完整列表中查找匹配的新闻
+    for i, item in enumerate(news_data):
+        item_link = item.get('link')
+        if item_link == link:
+            logger.info(f"Found matching news at index {i}: {item.get('title', 'No title')}")
+            news_item = item.copy()
+            global_index = i
+            # 计算这条新闻应该在第几页
+            page = (i // page_size) + 1
+            # 更新分页范围
+            start_index = (page - 1) * page_size
+            end_index = start_index + page_size
+            paged_news_data = news_data[start_index:end_index]
+            break
+    
+    if news_item is None:
+        print(f"Warning: News not found for link: {link}")
         return "新闻不存在", 404
+
+    content = get_news_content(link, news_item['source'])
+    news_item['content'] = content
+    
+    # 计算前后链接
+    prev_link = None
+    next_link = None
+    
+    if global_index is not None:
+        # 使用全局索引计算前后链接，这是最可靠的方法
+        if global_index > 0:
+            prev_link = news_data[global_index - 1]['link']
+            print(f"Using global index {global_index} to find previous link: {prev_link}")
+        else:
+            print(f"No previous link (global index is 0)")
+        
+        if global_index + 1 < len(news_data):
+            next_link = news_data[global_index + 1]['link']
+            print(f"Using global index {global_index} to find next link: {next_link}")
+        else:
+            print(f"No next link (global index is at end)")
+    
+    return render_template('news_content.html', 
+                          news_item=news_item, 
+                          websites=list(websites.keys()),
+                          current_website=website,
+                          prev_link=prev_link,
+                          next_link=next_link,
+                          page=page,
+                          page_size=page_size,
+                          sources=sources_str,
+                          search=search_text)
 
 @app.route('/fetch_news')
 def api_fetch_news():
@@ -246,7 +400,7 @@ def export_data():
                 seen.add(link)
                 deduped.append(item)
         deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
-        data = filter_news(deduped, search_text, start_date_str, end_date_str)
+        data = filter_news(deduped, search_text)
     elif website == ALL_SOURCES_LABEL:
         aggregated = []
         for site in websites.keys():
@@ -302,7 +456,7 @@ def rss_feed():
                 seen.add(link)
                 deduped.append(item)
         deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
-        data = filter_news(deduped, search_text, start_date_str, end_date_str)
+        data = filter_news(deduped, search_text)
     elif website == ALL_SOURCES_LABEL:
         aggregated = []
         for site in websites.keys():

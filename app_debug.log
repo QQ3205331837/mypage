@@ -1,0 +1,1249 @@
+2025-10-11 13:36:50,054 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 13:47:17,131 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 13:51:43,599 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 13:52:58,662 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 14:13:23,211 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 14:13:30,869 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 14:13:31,008 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 14:13:32,204 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 14:13:32,216 - DEBUG - Before filter - News count: 30
+2025-10-11 14:13:32,216 - DEBUG - Sorting by date descending
+2025-10-11 14:13:32,216 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:32,216 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 14:13:32,218 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 14:13:32,218 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 14:13:32,218 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 14:13:32,218 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 14:13:32,287 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:32] "GET / HTTP/1.1" 200 -
+2025-10-11 14:13:32,397 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:32,511 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:32] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:13:34,382 - DEBUG - Before filter - News count: 30
+2025-10-11 14:13:34,382 - DEBUG - Sorting by date descending
+2025-10-11 14:13:34,383 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:34,383 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 14:13:34,383 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 14:13:34,383 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 14:13:34,384 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 14:13:34,385 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 14:13:34,386 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:34] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&search=&page_size=12&sources=&page=2 HTTP/1.1" 200 -
+2025-10-11 14:13:34,424 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:34,504 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:34] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:13:35,358 - DEBUG - Before filter - News count: 30
+2025-10-11 14:13:35,359 - DEBUG - Sorting by date descending
+2025-10-11 14:13:35,360 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:35,360 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 14:13:35,360 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 14:13:35,361 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 14:13:35,361 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 14:13:35,361 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 14:13:35,362 - INFO - Found matching news at index 12: ¡°ÎåÉ«¡±ÇïÌì¸÷¾ßÌØÉ« ¼ªÁÖÊĞÑû¿Í´ò¿¨±ğÑùË«½Ú
+2025-10-11 14:13:35,363 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 14:13:35,477 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0923/c1012-40569808.html HTTP/1.1" 200 None
+2025-10-11 14:13:35,494 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 14:13:35,527 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:35] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0923/c1012-40569808.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:13:35,630 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 14:13:36,952 - DEBUG - Before filter - News count: 30
+2025-10-11 14:13:36,953 - DEBUG - Sorting by date descending
+2025-10-11 14:13:36,954 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:36,954 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 14:13:36,955 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 14:13:36,955 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 14:13:36,955 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 14:13:36,956 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 14:13:36,957 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:36] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:13:36,986 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:37,029 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:13:38,417 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 14:13:39,023 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 14:13:39,088 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 14:13:39,498 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 14:13:39,529 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 14:13:39,570 - DEBUG - Before filter - News count: 92
+2025-10-11 14:13:39,570 - DEBUG - Sorting by date descending
+2025-10-11 14:13:39,571 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:39,572 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:13:39,573 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:13:39,573 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:13:39,574 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:13:39,575 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:13:39,576 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:39] "GET /?website=È«²¿À´Ô´&search=&sources= HTTP/1.1" 200 -
+2025-10-11 14:13:39,609 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:39,661 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:39] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:13:40,943 - DEBUG - Before filter - News count: 92
+2025-10-11 14:13:40,943 - DEBUG - Sorting by date descending
+2025-10-11 14:13:40,944 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:40,944 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:13:40,945 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:13:40,945 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:13:40,946 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:13:40,948 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:13:40,950 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:40] "GET /?website=È«²¿À´Ô´&search=&sources=&page_size=12&page=2 HTTP/1.1" 200 -
+2025-10-11 14:13:40,981 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:41,064 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:41] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:13:42,128 - DEBUG - Before filter - News count: 92
+2025-10-11 14:13:42,128 - DEBUG - Sorting by date descending
+2025-10-11 14:13:42,130 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:42,130 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:13:42,130 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:13:42,131 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:13:42,131 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:13:42,132 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:13:42,132 - INFO - Found matching news at index 13: º£ÍâÖªÊ¶²úÈ¨Î¬È¨  ¾©½ò¼½ÊµÏÖÍ¬ÊÂÍ¬±ê
+2025-10-11 14:13:42,135 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 14:13:42,556 - DEBUG - https://www.cnr.cn:443 "GET /hebei/gstjhebei/20251011/t20251011_527391530.shtml HTTP/1.1" 200 None
+2025-10-11 14:13:42,567 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:42] "GET /news_content?link=https%3A//www.cnr.cn/hebei/gstjhebei/20251011/t20251011_527391530.shtml&website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:13:42,668 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 14:13:43,802 - DEBUG - Before filter - News count: 92
+2025-10-11 14:13:43,803 - DEBUG - Sorting by date descending
+2025-10-11 14:13:43,804 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:13:43,805 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:13:43,805 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:13:43,805 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:13:43,806 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:13:43,807 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:13:43,809 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:43] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:13:43,844 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:13:43,894 - INFO - 127.0.0.1 - - [11/Oct/2025 14:13:43] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:18:43,959 - DEBUG - Before filter - News count: 92
+2025-10-11 14:18:43,959 - DEBUG - Sorting by date descending
+2025-10-11 14:18:43,960 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:18:43,960 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:18:43,960 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:18:43,961 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:18:43,961 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:18:43,961 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:18:43,962 - INFO - 127.0.0.1 - - [11/Oct/2025 14:18:43] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:18:43,987 - INFO - 127.0.0.1 - - [11/Oct/2025 14:18:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:18:44,033 - INFO - 127.0.0.1 - - [11/Oct/2025 14:18:44] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:23:44,949 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 14:23:48,048 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 14:23:48,168 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 14:23:48,325 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 14:23:48,329 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 14:23:48,350 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 14:23:48,875 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 14:23:48,884 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 14:23:48,921 - DEBUG - Before filter - News count: 92
+2025-10-11 14:23:48,921 - DEBUG - Sorting by date descending
+2025-10-11 14:23:48,922 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:23:48,922 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:23:48,922 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:23:48,923 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:23:48,924 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:23:48,924 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:23:48,925 - INFO - 127.0.0.1 - - [11/Oct/2025 14:23:48] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:23:48,944 - INFO - 127.0.0.1 - - [11/Oct/2025 14:23:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:23:48,986 - INFO - 127.0.0.1 - - [11/Oct/2025 14:23:48] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:28:49,958 - DEBUG - Before filter - News count: 92
+2025-10-11 14:28:49,958 - DEBUG - Sorting by date descending
+2025-10-11 14:28:49,959 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:28:49,959 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:28:49,959 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:28:49,959 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:28:49,959 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:28:49,960 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:28:49,961 - INFO - 127.0.0.1 - - [11/Oct/2025 14:28:49] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:28:49,983 - INFO - 127.0.0.1 - - [11/Oct/2025 14:28:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:28:50,022 - INFO - 127.0.0.1 - - [11/Oct/2025 14:28:50] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:33:50,953 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 14:33:51,686 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 14:33:51,804 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 14:33:51,945 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 14:33:51,948 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 14:33:51,970 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 14:33:52,428 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 14:33:52,436 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 14:33:52,473 - DEBUG - Before filter - News count: 92
+2025-10-11 14:33:52,474 - DEBUG - Sorting by date descending
+2025-10-11 14:33:52,474 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:33:52,474 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:33:52,475 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:33:52,475 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:33:52,475 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:33:52,475 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:33:52,476 - INFO - 127.0.0.1 - - [11/Oct/2025 14:33:52] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:33:52,496 - INFO - 127.0.0.1 - - [11/Oct/2025 14:33:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:33:52,536 - INFO - 127.0.0.1 - - [11/Oct/2025 14:33:52] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:38:52,949 - DEBUG - Before filter - News count: 92
+2025-10-11 14:38:52,949 - DEBUG - Sorting by date descending
+2025-10-11 14:38:52,950 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:38:52,950 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:38:52,950 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:38:52,951 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:38:52,951 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:38:52,951 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:38:52,952 - INFO - 127.0.0.1 - - [11/Oct/2025 14:38:52] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:38:52,978 - INFO - 127.0.0.1 - - [11/Oct/2025 14:38:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:38:53,017 - INFO - 127.0.0.1 - - [11/Oct/2025 14:38:53] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:43:53,946 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 14:43:56,132 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 14:43:56,255 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 14:43:56,387 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 14:43:56,391 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 14:43:56,413 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 14:43:56,820 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 14:43:56,827 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 14:43:56,871 - DEBUG - Before filter - News count: 92
+2025-10-11 14:43:56,871 - DEBUG - Sorting by date descending
+2025-10-11 14:43:56,872 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:43:56,872 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:43:56,873 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:43:56,873 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:43:56,873 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:43:56,873 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:43:56,874 - INFO - 127.0.0.1 - - [11/Oct/2025 14:43:56] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:43:56,892 - INFO - 127.0.0.1 - - [11/Oct/2025 14:43:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:43:56,937 - INFO - 127.0.0.1 - - [11/Oct/2025 14:43:56] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:48:56,949 - DEBUG - Before filter - News count: 92
+2025-10-11 14:48:56,949 - DEBUG - Sorting by date descending
+2025-10-11 14:48:56,950 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:48:56,950 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:48:56,951 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:48:56,951 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:48:56,951 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:48:56,951 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:48:56,952 - INFO - 127.0.0.1 - - [11/Oct/2025 14:48:56] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:48:56,974 - INFO - 127.0.0.1 - - [11/Oct/2025 14:48:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:48:57,016 - INFO - 127.0.0.1 - - [11/Oct/2025 14:48:57] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:53:57,953 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 14:53:58,995 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 14:53:59,076 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 14:53:59,279 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 14:53:59,283 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 14:53:59,304 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 14:53:59,815 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 14:53:59,822 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 14:53:59,860 - DEBUG - Before filter - News count: 92
+2025-10-11 14:53:59,860 - DEBUG - Sorting by date descending
+2025-10-11 14:53:59,862 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:53:59,862 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:53:59,862 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:53:59,862 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:53:59,862 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:53:59,863 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:53:59,864 - INFO - 127.0.0.1 - - [11/Oct/2025 14:53:59] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:53:59,885 - INFO - 127.0.0.1 - - [11/Oct/2025 14:53:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:53:59,925 - INFO - 127.0.0.1 - - [11/Oct/2025 14:53:59] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 14:58:59,960 - DEBUG - Before filter - News count: 92
+2025-10-11 14:58:59,960 - DEBUG - Sorting by date descending
+2025-10-11 14:58:59,961 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 14:58:59,961 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 14:58:59,962 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 14:58:59,962 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 14:58:59,962 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 14:58:59,962 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 14:58:59,963 - INFO - 127.0.0.1 - - [11/Oct/2025 14:58:59] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 14:58:59,985 - INFO - 127.0.0.1 - - [11/Oct/2025 14:58:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 14:59:00,025 - INFO - 127.0.0.1 - - [11/Oct/2025 14:59:00] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:04:00,957 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:04:01,601 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 15:04:02,081 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 15:04:02,222 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 15:04:02,225 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:04:02,246 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:04:02,665 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 15:04:02,673 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 15:04:02,710 - DEBUG - Before filter - News count: 92
+2025-10-11 15:04:02,710 - DEBUG - Sorting by date descending
+2025-10-11 15:04:02,710 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:04:02,710 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:04:02,711 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:04:02,711 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:04:02,711 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:04:02,711 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:04:02,716 - INFO - 127.0.0.1 - - [11/Oct/2025 15:04:02] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:04:02,734 - INFO - 127.0.0.1 - - [11/Oct/2025 15:04:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:04:02,772 - INFO - 127.0.0.1 - - [11/Oct/2025 15:04:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:11:42,226 - DEBUG - Before filter - News count: 92
+2025-10-11 15:11:42,226 - DEBUG - Sorting by date descending
+2025-10-11 15:11:42,227 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:11:42,227 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:11:42,227 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:11:42,228 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:11:42,228 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:11:42,228 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:11:42,229 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:42] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:11:42,436 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:11:42,505 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:42] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:11:51,731 - DEBUG - Before filter - News count: 92
+2025-10-11 15:11:51,732 - DEBUG - Sorting by date descending
+2025-10-11 15:11:51,732 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:11:51,733 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:11:51,733 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:11:51,733 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:11:51,733 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:11:51,734 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:11:51,734 - INFO - Found matching news at index 12: 4603.2ÍòÈË´Î£¡¹úÇìÖĞÇï³¤¼ÙÌì½ò¿çÇøÓòÈËÔ±Á÷¶¯´´ĞÂ¸ß
+2025-10-11 15:11:51,735 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:11:52,216 - DEBUG - https://www.cnr.cn:443 "GET /tj/gstjtj/20251011/t20251011_527391483.shtml HTTP/1.1" 200 None
+2025-10-11 15:11:52,229 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:52] "GET /news_content?link=https%3A//www.cnr.cn/tj/gstjtj/20251011/t20251011_527391483.shtml&website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:11:52,336 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:11:53,629 - DEBUG - Before filter - News count: 92
+2025-10-11 15:11:53,630 - DEBUG - Sorting by date descending
+2025-10-11 15:11:53,630 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:11:53,630 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:11:53,630 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:11:53,631 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:11:53,631 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:11:53,631 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:11:53,632 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:53] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:11:53,658 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:11:53,699 - INFO - 127.0.0.1 - - [11/Oct/2025 15:11:53] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:16:53,952 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:16:58,174 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 15:16:58,294 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 15:16:58,493 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 15:16:58,497 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:16:58,518 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:16:58,976 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 15:16:58,984 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 15:16:59,026 - DEBUG - Before filter - News count: 92
+2025-10-11 15:16:59,027 - DEBUG - Sorting by date descending
+2025-10-11 15:16:59,027 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:16:59,027 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:16:59,027 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:16:59,027 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:16:59,028 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:16:59,028 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:16:59,029 - INFO - 127.0.0.1 - - [11/Oct/2025 15:16:59] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:16:59,070 - INFO - 127.0.0.1 - - [11/Oct/2025 15:16:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:16:59,108 - INFO - 127.0.0.1 - - [11/Oct/2025 15:16:59] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:17:15,009 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-10-11 15:17:37,683 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:37,683 - DEBUG - Sorting by date descending
+2025-10-11 15:17:37,683 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:37,684 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:37,684 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:37,684 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:37,686 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:37,687 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:37,688 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:37] "GET / HTTP/1.1" 200 -
+2025-10-11 15:17:37,715 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:17:37,898 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:17:39,648 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:39,648 - DEBUG - Sorting by date descending
+2025-10-11 15:17:39,649 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:39,650 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:39,652 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:39,652 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:39,652 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:39,653 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:39,655 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:39] "GET / HTTP/1.1" 200 -
+2025-10-11 15:17:39,677 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:17:44,807 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:44,807 - DEBUG - Sorting by date descending
+2025-10-11 15:17:44,807 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:44,808 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:44,808 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:44,808 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:44,808 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:44,808 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:44,808 - INFO - Found matching news at index 10: ¸øÂÃÓÎÇ¿ÆÈ¹ºÎï»­³ö¡°·¨ÂÉ±ê×¼Ïñ¡±
+2025-10-11 15:17:44,809 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:17:44,958 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0926/c1012-40572337.html HTTP/1.1" 200 None
+2025-10-11 15:17:44,973 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:17:44,999 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:44] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0926/c1012-40572337.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:45,149 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:45] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:17:49,168 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:49,168 - DEBUG - Sorting by date descending
+2025-10-11 15:17:49,168 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:49,169 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:49,169 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:49,169 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:49,170 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:49,170 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:49,172 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:49] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:49,187 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:17:49,360 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:49] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:17:50,453 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:50,454 - DEBUG - Sorting by date descending
+2025-10-11 15:17:50,455 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:50,455 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:50,456 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:50,456 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:50,457 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:50,457 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:50,457 - INFO - Found matching news at index 1: ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:50,459 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:17:50,585 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/1009/c1012-40578444.html HTTP/1.1" 200 None
+2025-10-11 15:17:50,606 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:17:50,633 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:50] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/1009/c1012-40578444.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:50,780 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:17:51,492 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:51,493 - DEBUG - Sorting by date descending
+2025-10-11 15:17:51,493 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:51,493 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:51,493 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:51,494 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:51,494 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:51,494 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:51,495 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:51] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:51,511 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:17:51,871 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:51] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:17:53,366 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:53,366 - DEBUG - Sorting by date descending
+2025-10-11 15:17:53,367 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:53,367 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:53,367 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:53,367 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:53,367 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:53,368 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:53,369 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:53] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:53,400 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:17:53,795 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:53] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:17:54,944 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:54,945 - DEBUG - Sorting by date descending
+2025-10-11 15:17:54,945 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:54,946 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:54,946 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:54,946 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:54,946 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:54,947 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:54,947 - INFO - Found matching news at index 16: Ò»Æ±ÄÑÇó£¡ËüÎªÊ²Ã´ÄÜ³ÉĞÂ½®ÂÃÓÎÁĞ³µ¡°Ìì»¨°å¡±£¿
+2025-10-11 15:17:54,948 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:17:55,116 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0912/c1012-40562366.html HTTP/1.1" 200 None
+2025-10-11 15:17:55,135 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:17:55,172 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:55] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0912/c1012-40562366.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:55,437 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:17:56,665 - DEBUG - Before filter - News count: 30
+2025-10-11 15:17:56,666 - DEBUG - Sorting by date descending
+2025-10-11 15:17:56,667 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:17:56,667 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:17:56,668 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:17:56,668 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:17:56,668 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:17:56,668 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:17:56,671 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:56] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:17:56,705 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:17:57,633 - INFO - 127.0.0.1 - - [11/Oct/2025 15:17:57] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:20:16,838 - DEBUG - Before filter - News count: 30
+2025-10-11 15:20:16,839 - DEBUG - Sorting by date descending
+2025-10-11 15:20:16,840 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:20:16,840 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:20:16,840 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:20:16,840 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:20:16,840 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:20:16,840 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:20:16,841 - INFO - Found matching news at index 11: ´Ó·ÇÒÅ±£»¤µ½ÎÄÂÃÈÚºÏ ÖĞÍâÑ§ÕßÌ¸Î÷²ØÓÅĞã´«Í³ÎÄ»¯´«³Ğ·¢Õ¹
+2025-10-11 15:20:16,842 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:20:16,981 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0924/c1012-40570779.html HTTP/1.1" 200 None
+2025-10-11 15:20:16,998 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:20:17,022 - INFO - 127.0.0.1 - - [11/Oct/2025 15:20:17] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0924/c1012-40570779.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:20:18,642 - DEBUG - Before filter - News count: 30
+2025-10-11 15:20:18,643 - DEBUG - Sorting by date descending
+2025-10-11 15:20:18,643 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:20:18,643 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:20:18,643 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:20:18,643 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:20:18,643 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:20:18,644 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:20:18,645 - INFO - 127.0.0.1 - - [11/Oct/2025 15:20:18] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:20:18,650 - INFO - 127.0.0.1 - - [11/Oct/2025 15:20:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:21:16,506 - DEBUG - Before filter - News count: 30
+2025-10-11 15:21:16,507 - DEBUG - Sorting by date descending
+2025-10-11 15:21:16,507 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:21:16,507 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:21:16,508 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:21:16,508 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:21:16,508 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:21:16,508 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:21:16,509 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:16] "GET / HTTP/1.1" 200 -
+2025-10-11 15:21:16,517 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:21:43,224 - DEBUG - Before filter - News count: 30
+2025-10-11 15:21:43,225 - DEBUG - Sorting by date descending
+2025-10-11 15:21:43,225 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:21:43,225 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:21:43,225 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:21:43,226 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:21:43,226 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:21:43,226 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:21:43,227 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:43] "GET / HTTP/1.1" 200 -
+2025-10-11 15:21:43,233 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:21:59,954 - DEBUG - Before filter - News count: 92
+2025-10-11 15:21:59,954 - DEBUG - Sorting by date descending
+2025-10-11 15:21:59,955 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:21:59,955 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:21:59,955 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:21:59,955 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:21:59,955 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:21:59,956 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:21:59,957 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:59] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:21:59,992 - INFO - 127.0.0.1 - - [11/Oct/2025 15:21:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:22:00,061 - INFO - 127.0.0.1 - - [11/Oct/2025 15:22:00] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:24:40,464 - DEBUG - Before filter - News count: 30
+2025-10-11 15:24:40,464 - DEBUG - Sorting by date descending
+2025-10-11 15:24:40,465 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:24:40,465 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:24:40,465 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:24:40,465 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:24:40,466 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:24:40,466 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:24:40,467 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:40] "GET / HTTP/1.1" 200 -
+2025-10-11 15:24:40,474 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:24:50,622 - DEBUG - Before filter - News count: 30
+2025-10-11 15:24:50,622 - DEBUG - Sorting by date descending
+2025-10-11 15:24:50,623 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:24:50,623 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:24:50,623 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:24:50,623 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:24:50,623 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:24:50,623 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:24:50,624 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:50] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&search=&page_size=12&sources=&page=2 HTTP/1.1" 200 -
+2025-10-11 15:24:50,632 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:24:52,093 - DEBUG - Before filter - News count: 30
+2025-10-11 15:24:52,093 - DEBUG - Sorting by date descending
+2025-10-11 15:24:52,094 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:24:52,094 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:24:52,095 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:24:52,095 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:24:52,096 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:24:52,096 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:24:52,096 - INFO - Found matching news at index 12: ¡°ÎåÉ«¡±ÇïÌì¸÷¾ßÌØÉ« ¼ªÁÖÊĞÑû¿Í´ò¿¨±ğÑùË«½Ú
+2025-10-11 15:24:52,098 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:24:52,216 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0923/c1012-40569808.html HTTP/1.1" 200 None
+2025-10-11 15:24:52,218 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:24:52,242 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:52] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0923/c1012-40569808.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:24:57,371 - DEBUG - Before filter - News count: 30
+2025-10-11 15:24:57,371 - DEBUG - Sorting by date descending
+2025-10-11 15:24:57,372 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:24:57,372 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:24:57,372 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:24:57,372 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:24:57,372 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:24:57,372 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:24:57,373 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:57] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:24:57,380 - INFO - 127.0.0.1 - - [11/Oct/2025 15:24:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:25:02,018 - DEBUG - Before filter - News count: 30
+2025-10-11 15:25:02,018 - DEBUG - Sorting by date descending
+2025-10-11 15:25:02,019 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:02,019 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:25:02,019 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:25:02,019 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:25:02,019 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:25:02,019 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:25:02,021 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:02] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:02,028 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:25:16,548 - DEBUG - Before filter - News count: 92
+2025-10-11 15:25:16,548 - DEBUG - Sorting by date descending
+2025-10-11 15:25:16,549 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:16,550 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:25:16,550 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:25:16,551 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:25:16,551 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:25:16,551 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:25:16,551 - INFO - Found matching news at index 12: 4603.2ÍòÈË´Î£¡¹úÇìÖĞÇï³¤¼ÙÌì½ò¿çÇøÓòÈËÔ±Á÷¶¯´´ĞÂ¸ß
+2025-10-11 15:25:16,553 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:25:16,988 - DEBUG - https://www.cnr.cn:443 "GET /tj/gstjtj/20251011/t20251011_527391483.shtml HTTP/1.1" 200 None
+2025-10-11 15:25:16,999 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:16] "GET /news_content?link=https%3A//www.cnr.cn/tj/gstjtj/20251011/t20251011_527391483.shtml&website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:17,109 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:25:20,316 - DEBUG - Before filter - News count: 92
+2025-10-11 15:25:20,316 - DEBUG - Sorting by date descending
+2025-10-11 15:25:20,316 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:20,317 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:25:20,317 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:25:20,317 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:25:20,317 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:25:20,317 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:25:20,318 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:20] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:20,359 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:25:20,412 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:20] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:25:21,490 - DEBUG - Before filter - News count: 92
+2025-10-11 15:25:21,491 - DEBUG - Sorting by date descending
+2025-10-11 15:25:21,491 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:21,491 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:25:21,491 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:25:21,492 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:25:21,492 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:25:21,492 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:25:21,492 - INFO - Found matching news at index 13: º£ÍâÖªÊ¶²úÈ¨Î¬È¨  ¾©½ò¼½ÊµÏÖÍ¬ÊÂÍ¬±ê
+2025-10-11 15:25:21,494 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:25:21,941 - DEBUG - https://www.cnr.cn:443 "GET /hebei/gstjhebei/20251011/t20251011_527391530.shtml HTTP/1.1" 200 None
+2025-10-11 15:25:21,952 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:21] "GET /news_content?link=https%3A//www.cnr.cn/hebei/gstjhebei/20251011/t20251011_527391530.shtml&website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:22,027 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:25:24,260 - DEBUG - Before filter - News count: 92
+2025-10-11 15:25:24,260 - DEBUG - Sorting by date descending
+2025-10-11 15:25:24,261 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:24,261 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:25:24,261 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:25:24,261 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:25:24,261 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:25:24,261 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:25:24,262 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:24] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:24,297 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:25:24,339 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:24] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:25:27,915 - DEBUG - Before filter - News count: 92
+2025-10-11 15:25:27,915 - DEBUG - Sorting by date descending
+2025-10-11 15:25:27,915 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:25:27,916 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:25:27,916 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:25:27,916 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:25:27,916 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:25:27,916 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:25:27,916 - INFO - Found matching news at index 13: º£ÍâÖªÊ¶²úÈ¨Î¬È¨  ¾©½ò¼½ÊµÏÖÍ¬ÊÂÍ¬±ê
+2025-10-11 15:25:27,918 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:25:28,301 - DEBUG - https://www.cnr.cn:443 "GET /hebei/gstjhebei/20251011/t20251011_527391530.shtml HTTP/1.1" 200 None
+2025-10-11 15:25:28,312 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:28] "GET /news_content?link=https%3A//www.cnr.cn/hebei/gstjhebei/20251011/t20251011_527391530.shtml&website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:25:28,377 - INFO - 127.0.0.1 - - [11/Oct/2025 15:25:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:27:19,543 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:27:20,631 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/node_1823.html HTTP/1.1" 200 None
+2025-10-11 15:27:20,751 - DEBUG - Starting new HTTP connection (1): travel.people.com.cn:80
+2025-10-11 15:27:20,906 - DEBUG - http://travel.people.com.cn:80 "GET / HTTP/1.1" 200 5260
+2025-10-11 15:27:20,910 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:27:20,932 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:27:21,508 - DEBUG - https://travel.cnr.cn:443 "GET / HTTP/1.1" 200 None
+2025-10-11 15:27:21,543 - DEBUG - Encoding detection: gb2312 is most likely the one.
+2025-10-11 15:27:21,588 - DEBUG - Before filter - News count: 92
+2025-10-11 15:27:21,588 - DEBUG - Sorting by date descending
+2025-10-11 15:27:21,589 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:21,589 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:27:21,589 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:27:21,589 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:27:21,590 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:27:21,590 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:27:21,591 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:21] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:27:21,633 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:27:21,798 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:21] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:27:35,637 - DEBUG - Before filter - News count: 30
+2025-10-11 15:27:35,637 - DEBUG - Sorting by date descending
+2025-10-11 15:27:35,638 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:35,638 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:27:35,638 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:27:35,638 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:27:35,638 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:27:35,638 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:27:35,639 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:35] "GET / HTTP/1.1" 200 -
+2025-10-11 15:27:35,648 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:35] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:27:36,646 - DEBUG - Before filter - News count: 92
+2025-10-11 15:27:36,646 - DEBUG - Sorting by date descending
+2025-10-11 15:27:36,647 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:36,647 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:27:36,647 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:27:36,648 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:27:36,648 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:27:36,648 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:27:36,649 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:36] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:27:36,689 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:27:36,753 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:36] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:27:49,916 - DEBUG - Before filter - News count: 30
+2025-10-11 15:27:49,916 - DEBUG - Sorting by date descending
+2025-10-11 15:27:49,917 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:49,917 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:27:49,917 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:27:49,917 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:27:49,918 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:27:49,918 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:27:49,919 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:49] "GET / HTTP/1.1" 200 -
+2025-10-11 15:27:49,927 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:27:50,765 - DEBUG - Before filter - News count: 30
+2025-10-11 15:27:50,765 - DEBUG - Sorting by date descending
+2025-10-11 15:27:50,765 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:50,766 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:27:50,766 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:27:50,766 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:27:50,766 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:27:50,766 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:27:50,767 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:50] "GET / HTTP/1.1" 200 -
+2025-10-11 15:27:50,775 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:27:59,382 - DEBUG - Before filter - News count: 30
+2025-10-11 15:27:59,383 - DEBUG - Sorting by date descending
+2025-10-11 15:27:59,383 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:27:59,383 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:27:59,383 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:27:59,383 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:27:59,384 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:27:59,384 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:27:59,385 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:59] "GET / HTTP/1.1" 200 -
+2025-10-11 15:27:59,415 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:27:59,482 - INFO - 127.0.0.1 - - [11/Oct/2025 15:27:59] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:01,469 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:01,469 - DEBUG - Sorting by date descending
+2025-10-11 15:28:01,469 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:01,470 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:01,470 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:01,470 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:01,470 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:01,470 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:01,471 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:01] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:01,498 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:01,524 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:01] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:02,936 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:02,936 - DEBUG - Sorting by date descending
+2025-10-11 15:28:02,937 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:02,937 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:02,938 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:02,938 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:02,938 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:02,938 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:02,939 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:02] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:02,968 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:03,007 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:03,125 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:03,125 - DEBUG - Sorting by date descending
+2025-10-11 15:28:03,125 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:03,125 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:03,125 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:03,126 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:03,126 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:03,126 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:03,127 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:03,156 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:03,189 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:04,891 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:04,891 - DEBUG - Sorting by date descending
+2025-10-11 15:28:04,892 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:04,892 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:04,892 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:04,892 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:04,892 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:04,893 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:04,894 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:04] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:04,919 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:04,960 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:04] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,053 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:05,053 - DEBUG - Sorting by date descending
+2025-10-11 15:28:05,054 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:05,054 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:05,054 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:05,055 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:05,055 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:05,055 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:05,057 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:05,083 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,099 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,219 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:05,220 - DEBUG - Sorting by date descending
+2025-10-11 15:28:05,222 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:05,223 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:05,223 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:05,223 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:05,223 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:05,224 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:05,225 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:05,265 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,316 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,470 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:05,470 - DEBUG - Sorting by date descending
+2025-10-11 15:28:05,471 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:05,471 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:05,471 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:05,471 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:05,471 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:05,471 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:05,472 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:05,501 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:05,520 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:05] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,026 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:06,027 - DEBUG - Sorting by date descending
+2025-10-11 15:28:06,027 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:06,028 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:06,028 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:06,028 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:06,028 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:06,029 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:06,030 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:06,058 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,074 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,216 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:06,216 - DEBUG - Sorting by date descending
+2025-10-11 15:28:06,216 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:06,216 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:06,217 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:06,217 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:06,217 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:06,217 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:06,218 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:06,242 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,259 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,376 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:06,376 - DEBUG - Sorting by date descending
+2025-10-11 15:28:06,377 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:06,377 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:06,377 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:06,377 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:06,377 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:06,377 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:06,379 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:06,405 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:06,420 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:28:51,534 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:51,535 - DEBUG - Sorting by date descending
+2025-10-11 15:28:51,535 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:51,535 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:51,536 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:51,536 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:51,536 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:51,536 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:51,538 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:51] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:51,550 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:28:55,562 - DEBUG - Before filter - News count: 30
+2025-10-11 15:28:55,562 - DEBUG - Sorting by date descending
+2025-10-11 15:28:55,562 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:28:55,562 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:28:55,563 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:28:55,563 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:28:55,564 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:28:55,564 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:28:55,565 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:55] "GET / HTTP/1.1" 200 -
+2025-10-11 15:28:55,574 - INFO - 127.0.0.1 - - [11/Oct/2025 15:28:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,260 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:02,261 - DEBUG - Sorting by date descending
+2025-10-11 15:29:02,261 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:02,261 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:02,261 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:02,261 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:02,262 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:02,262 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:02,263 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:02,299 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,360 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,752 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:02,752 - DEBUG - Sorting by date descending
+2025-10-11 15:29:02,753 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:02,753 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:02,753 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:02,753 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:02,754 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:02,754 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:02,755 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:02,788 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,852 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,926 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:02,926 - DEBUG - Sorting by date descending
+2025-10-11 15:29:02,927 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:02,927 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:02,927 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:02,927 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:02,927 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:02,928 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:02,929 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:02,961 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:02,981 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,067 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:03,068 - DEBUG - Sorting by date descending
+2025-10-11 15:29:03,068 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:03,069 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:03,069 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:03,069 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:03,071 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:03,075 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:03,078 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:03,120 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,148 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,215 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:03,216 - DEBUG - Sorting by date descending
+2025-10-11 15:29:03,216 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:03,216 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:03,216 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:03,216 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:03,217 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:03,217 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:03,218 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:03,260 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,291 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,380 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:03,380 - DEBUG - Sorting by date descending
+2025-10-11 15:29:03,381 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:03,381 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:03,382 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:03,382 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:03,382 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:03,382 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:03,383 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:03,422 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,457 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,543 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:03,543 - DEBUG - Sorting by date descending
+2025-10-11 15:29:03,544 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:03,544 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:03,544 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:03,545 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:03,545 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:03,545 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:03,546 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:03,578 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,596 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,693 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:03,694 - DEBUG - Sorting by date descending
+2025-10-11 15:29:03,694 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:03,694 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:03,695 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:03,695 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:03,695 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:03,695 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:03,696 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:03,731 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:03,761 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:29:17,515 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:17,515 - DEBUG - Sorting by date descending
+2025-10-11 15:29:17,515 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:17,515 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:17,515 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:17,516 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:17,516 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:17,516 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:17,517 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:17] "GET / HTTP/1.1" 200 -
+2025-10-11 15:29:17,523 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:29:25,837 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:25,838 - DEBUG - Sorting by date descending
+2025-10-11 15:29:25,838 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:25,839 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:25,839 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:25,839 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:25,839 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:25,839 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:25,841 - INFO - Found matching news at index 0: ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:25,845 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:29:25,919 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/1010/c1012-40578951.html HTTP/1.1" 200 None
+2025-10-11 15:29:25,940 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:29:25,967 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:25] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/1010/c1012-40578951.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:27,137 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:27,138 - DEBUG - Sorting by date descending
+2025-10-11 15:29:27,138 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:27,139 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:27,139 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:27,140 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:27,140 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:27,140 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:27,141 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:27] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:27,148 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:32,209 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:32,209 - DEBUG - Sorting by date descending
+2025-10-11 15:29:32,209 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:32,210 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:32,210 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:32,210 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:32,210 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:32,210 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:32,211 - INFO - Found matching news at index 2: ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:32,212 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:29:32,286 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/1009/c1012-40578077.html HTTP/1.1" 200 None
+2025-10-11 15:29:32,305 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:29:32,331 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:32] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/1009/c1012-40578077.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:36,496 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:36,496 - DEBUG - Sorting by date descending
+2025-10-11 15:29:36,497 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:36,497 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:36,497 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:36,497 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:36,497 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:36,497 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:36,498 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:36] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:36,504 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:38,304 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:38,305 - DEBUG - Sorting by date descending
+2025-10-11 15:29:38,305 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:38,305 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:38,305 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:38,305 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:38,305 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:38,305 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:38,306 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:38] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:38,315 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:39,757 - DEBUG - Before filter - News count: 30
+2025-10-11 15:29:39,758 - DEBUG - Sorting by date descending
+2025-10-11 15:29:39,758 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:39,758 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:39,758 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:29:39,758 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:29:39,758 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:29:39,758 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:29:39,759 - INFO - Found matching news at index 13: ¸°Ì©Íâ¹úÓÎ¿ÍÊıÁ¿Í¬±ÈÏÂ½µ7.08%
+2025-10-11 15:29:39,760 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:29:39,827 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0917/c1012-40565679.html HTTP/1.1" 200 None
+2025-10-11 15:29:39,886 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:29:39,915 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:39] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0917/c1012-40565679.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:42,213 - DEBUG - Before filter - News count: 12
+2025-10-11 15:29:42,213 - DEBUG - Sorting by date descending
+2025-10-11 15:29:42,214 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:42,214 - DEBUG - 1. ¹Ê¹¬²©ÎïÔº½¨Ôº100ÖÜÄê×ùÌ¸»á¾ÙĞĞ ÀîÊéÀÚ³öÏ¯²¢½²»°
+2025-10-11 15:29:42,214 - DEBUG - 2. ´óÖÚ³öÓÎÈÈ Ïû·Ñ¾¢Í·×ã
+2025-10-11 15:29:42,214 - DEBUG - 3. ¿Æ¼¼¸³ÄÜ ¼ÙÆÚ·ÇÒÅ»ÀĞÂ
+2025-10-11 15:29:42,214 - DEBUG - 4. 2025Äê¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:29:42,214 - DEBUG - 5. ´´ÀúÊ·ĞÂ¸ß£¡ÖĞÇï¹úÇì¼ÙÆÚÀÛ¼Æ¿çÇøÓòÈËÔ±Á÷¶¯Á¿Ô¤¼Æ24.32ÒÚÈË´Î
+2025-10-11 15:29:42,215 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:42] "GET /?website=ÖĞ¹úÂÃÓÎĞÂÎÅÍø HTTP/1.1" 200 -
+2025-10-11 15:29:42,221 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:43,619 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:43,619 - DEBUG - Sorting by date descending
+2025-10-11 15:29:43,619 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:43,619 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:43,620 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:43,620 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:43,620 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:43,620 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:43,621 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:43] "GET /?website=È«²¿À´Ô´&search=&sources= HTTP/1.1" 200 -
+2025-10-11 15:29:43,629 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:45,358 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:45,358 - DEBUG - Sorting by date descending
+2025-10-11 15:29:45,358 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:45,359 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:45,359 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:45,359 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:45,359 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:45,359 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:45,360 - INFO - Found matching news at index 1: ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:45,361 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:29:45,810 - DEBUG - https://travel.cnr.cn:443 "GET //travel.cnr.cn/hydt/ HTTP/1.1" 302 None
+2025-10-11 15:29:45,812 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:29:46,208 - DEBUG - https://www.cnr.cn:443 "GET /cnr_404/index.html HTTP/1.1" 200 None
+2025-10-11 15:29:46,215 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:46] "GET /news_content?link=https%3A//travel.cnr.cn//travel.cnr.cn/hydt/&website=È«²¿À´Ô´&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:47,288 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:47,288 - DEBUG - Sorting by date descending
+2025-10-11 15:29:47,288 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:47,288 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:47,288 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:47,289 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:47,289 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:47,289 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:47,290 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:47] "GET /?website=È«²¿À´Ô´&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:47,298 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:48,898 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:48,898 - DEBUG - Sorting by date descending
+2025-10-11 15:29:48,899 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:48,899 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:48,899 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:48,899 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:48,899 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:48,899 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:48,900 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:48] "GET /?website=È«²¿À´Ô´&page=2&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:48,909 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:50,224 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:50,225 - DEBUG - Sorting by date descending
+2025-10-11 15:29:50,225 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:50,226 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:50,226 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:50,226 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:50,226 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:50,226 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:50,228 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:50] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:29:50,241 - INFO - 127.0.0.1 - - [11/Oct/2025 15:29:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:29:51,432 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:51,433 - DEBUG - Sorting by date descending
+2025-10-11 15:29:51,433 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:51,433 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:51,433 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:51,433 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:51,434 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:51,434 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:51,434 - INFO - Found matching news at index 25: ¹Ê¹¬²©ÎïÔº½¨Ôº100ÖÜÄê×ùÌ¸»á¾ÙĞĞ ÀîÊéÀÚ³öÏ¯²¢½²»°
+2025-10-11 15:29:51,436 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:29:57,139 - DEBUG - Before filter - News count: 92
+2025-10-11 15:29:57,139 - DEBUG - Sorting by date descending
+2025-10-11 15:29:57,139 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:29:57,140 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:29:57,140 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:29:57,140 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:29:57,140 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:29:57,140 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:29:57,140 - INFO - Found matching news at index 25: ¹Ê¹¬²©ÎïÔº½¨Ôº100ÖÜÄê×ùÌ¸»á¾ÙĞĞ ÀîÊéÀÚ³öÏ¯²¢½²»°
+2025-10-11 15:29:57,142 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:30:00,728 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:00,728 - DEBUG - Sorting by date descending
+2025-10-11 15:30:00,729 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:00,729 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:00,729 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:00,729 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:00,729 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:00,729 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:00,730 - INFO - Found matching news at index 24: ÄÏ²ı57¸ö»ØÊÕµã¿É³¤ÆÚ»ØÊÕ¼ÒÍ¥¹ıÆÚÒ©Æ·
+2025-10-11 15:30:00,731 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:30:01,106 - DEBUG - https://www.cnr.cn:443 "GET /jx/gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 301 162
+2025-10-11 15:30:01,108 - DEBUG - Starting new HTTPS connection (1): jx.cnr.cn:443
+2025-10-11 15:30:01,147 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:01,147 - DEBUG - Sorting by date descending
+2025-10-11 15:30:01,148 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:01,148 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:01,148 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:01,149 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:01,149 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:01,149 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:01,149 - INFO - Found matching news at index 24: ÄÏ²ı57¸ö»ØÊÕµã¿É³¤ÆÚ»ØÊÕ¼ÒÍ¥¹ıÆÚÒ©Æ·
+2025-10-11 15:30:01,150 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:30:01,664 - DEBUG - https://www.cnr.cn:443 "GET /jx/gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 301 162
+2025-10-11 15:30:01,666 - DEBUG - Starting new HTTPS connection (1): jx.cnr.cn:443
+2025-10-11 15:30:01,711 - DEBUG - https://jx.cnr.cn:443 "GET /gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 200 None
+2025-10-11 15:30:01,725 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:01] "GET /news_content?link=https%3A//www.cnr.cn/jx/gstjjx/20251011/t20251011_527391606.shtml&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:01,891 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:01,892 - DEBUG - Sorting by date descending
+2025-10-11 15:30:01,893 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:01,893 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:01,893 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:01,893 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:01,893 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:01,894 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:01,894 - INFO - Found matching news at index 25: ¹Ê¹¬²©ÎïÔº½¨Ôº100ÖÜÄê×ùÌ¸»á¾ÙĞĞ ÀîÊéÀÚ³öÏ¯²¢½²»°
+2025-10-11 15:30:01,897 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:30:02,269 - DEBUG - https://jx.cnr.cn:443 "GET /gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 200 None
+2025-10-11 15:30:02,283 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:02] "GET /news_content?link=https%3A//www.cnr.cn/jx/gstjjx/20251011/t20251011_527391606.shtml&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:02,333 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:30:02,436 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/content/2025-10/10/content_179681.html HTTP/1.1" 200 None
+2025-10-11 15:30:02,462 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:02,462 - DEBUG - Sorting by date descending
+2025-10-11 15:30:02,462 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:02,462 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:02,462 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:02,463 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:02,463 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:02,463 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:02,463 - INFO - Found matching news at index 24: ÄÏ²ı57¸ö»ØÊÕµã¿É³¤ÆÚ»ØÊÕ¼ÒÍ¥¹ıÆÚÒ©Æ·
+2025-10-11 15:30:02,465 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:30:02,572 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:30:02,582 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:02] "GET /news_content?link=https%3A//www.ctnews.com.cn/jujiao/content/2025-10/10/content_179681.html&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:02,616 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/content/2025-10/10/content_179681.html HTTP/1.1" 200 None
+2025-10-11 15:30:02,718 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:30:02,728 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:02] "GET /news_content?link=https%3A//www.ctnews.com.cn/jujiao/content/2025-10/10/content_179681.html&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:02,952 - DEBUG - https://www.cnr.cn:443 "GET /jx/gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 301 162
+2025-10-11 15:30:02,953 - DEBUG - Starting new HTTPS connection (1): jx.cnr.cn:443
+2025-10-11 15:30:03,324 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/content/2025-10/10/content_179681.html HTTP/1.1" 200 None
+2025-10-11 15:30:03,328 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:30:03,338 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:03] "GET /news_content?link=https%3A//www.ctnews.com.cn/jujiao/content/2025-10/10/content_179681.html&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:03,377 - DEBUG - https://jx.cnr.cn:443 "GET /gstjjx/20251011/t20251011_527391606.shtml HTTP/1.1" 200 None
+2025-10-11 15:30:03,391 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:03] "GET /news_content?link=https%3A//www.cnr.cn/jx/gstjjx/20251011/t20251011_527391606.shtml&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:05,830 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:05,831 - DEBUG - Sorting by date descending
+2025-10-11 15:30:05,831 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:05,831 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:05,831 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:05,831 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:05,832 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:05,832 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:05,833 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:05] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:05,841 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:07,965 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:07,965 - DEBUG - Sorting by date descending
+2025-10-11 15:30:07,966 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:07,966 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:07,966 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:07,966 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:07,966 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:07,966 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:07,966 - INFO - Found matching news at index 25: ¹Ê¹¬²©ÎïÔº½¨Ôº100ÖÜÄê×ùÌ¸»á¾ÙĞĞ ÀîÊéÀÚ³öÏ¯²¢½²»°
+2025-10-11 15:30:07,971 - DEBUG - Starting new HTTPS connection (1): www.ctnews.com.cn:443
+2025-10-11 15:30:08,642 - DEBUG - https://www.ctnews.com.cn:443 "GET /jujiao/content/2025-10/10/content_179681.html HTTP/1.1" 200 None
+2025-10-11 15:30:08,960 - DEBUG - Encoding detection: Found utf_8 as plausible (best-candidate) for content. With 0 alternatives.
+2025-10-11 15:30:08,983 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:08] "GET /news_content?link=https%3A//www.ctnews.com.cn/jujiao/content/2025-10/10/content_179681.html&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:10,135 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:10,136 - DEBUG - Sorting by date descending
+2025-10-11 15:30:10,136 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:10,136 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:10,136 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:10,136 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:10,136 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:10,136 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:10,138 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:10] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:10,147 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:18,722 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:18,722 - DEBUG - Sorting by date descending
+2025-10-11 15:30:18,722 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:18,723 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:18,723 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:18,723 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:18,723 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:18,723 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:18,724 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:18] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:18,733 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:35,235 - DEBUG - Before filter - News count: 30
+2025-10-11 15:30:35,235 - DEBUG - Sorting by date descending
+2025-10-11 15:30:35,236 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:35,236 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:30:35,236 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:30:35,236 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:30:35,236 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:30:35,236 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:30:35,237 - INFO - Found matching news at index 10: ¸øÂÃÓÎÇ¿ÆÈ¹ºÎï»­³ö¡°·¨ÂÉ±ê×¼Ïñ¡±
+2025-10-11 15:30:35,238 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:30:35,296 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/0926/c1012-40572337.html HTTP/1.1" 200 None
+2025-10-11 15:30:35,298 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:30:35,323 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:35] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/0926/c1012-40572337.html&website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:35,427 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-10-11 15:30:37,101 - DEBUG - Before filter - News count: 30
+2025-10-11 15:30:37,102 - DEBUG - Sorting by date descending
+2025-10-11 15:30:37,102 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:37,102 - DEBUG - 1. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:30:37,103 - DEBUG - 2. ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î ×Ü»¨·Ñ³¬8090ÒÚÔª
+2025-10-11 15:30:37,103 - DEBUG - 3. ½­ËÕĞìÖİ£ºººÎÄ»¯ÓÎ¡°±¬¿î¡±¶à
+2025-10-11 15:30:37,103 - DEBUG - 4. ²İÔ­×Ô¼İÓÎÏßÂ·ÓĞ¿´µã
+2025-10-11 15:30:37,103 - DEBUG - 5. Èë¾³ÂÃÓÎĞÂ¸ß·å ÖĞ¹úÓ­À´¿ç¾³ÂÃÓÎË«ÏòÈÈ³±
+2025-10-11 15:30:37,104 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:37] "GET /?website=ÈËÃñÍøÂÃÓÎÆµµÀ&page=1&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:37,142 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-10-11 15:30:37,474 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-10-11 15:30:47,462 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:47,462 - DEBUG - Sorting by date descending
+2025-10-11 15:30:47,463 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:47,463 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:47,463 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:47,463 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:47,464 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:47,464 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:47,464 - INFO - Found matching news at index 28: ¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î
+2025-10-11 15:30:47,466 - DEBUG - Starting new HTTP connection (1): ent.people.com.cn:80
+2025-10-11 15:30:47,532 - DEBUG - http://ent.people.com.cn:80 "GET /n1/2025/1010/c1012-40578951.html HTTP/1.1" 200 None
+2025-10-11 15:30:47,533 - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-10-11 15:30:47,560 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:47] "GET /news_content?link=http%3A//ent.people.com.cn/n1/2025/1010/c1012-40578951.html&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:48,693 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:48,694 - DEBUG - Sorting by date descending
+2025-10-11 15:30:48,694 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:48,695 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:48,695 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:48,695 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:48,695 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:48,696 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:48,697 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:48] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:48,704 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:52,234 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:52,235 - DEBUG - Sorting by date descending
+2025-10-11 15:30:52,235 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:52,235 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:52,235 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:52,235 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:52,236 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:52,236 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:52,236 - INFO - Found matching news at index 29: ÎÄ»¯¼ÇÒäÔÚÊı×ÖÊ±´ú¡°»î¡±ÆğÀ´
+2025-10-11 15:30:52,237 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:30:52,637 - DEBUG - https://www.cnr.cn:443 "GET /lvyou/2011lvpd/lvyw/20251010/t20251010_527390646.shtml HTTP/1.1" 301 162
+2025-10-11 15:30:52,639 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:30:53,169 - DEBUG - https://travel.cnr.cn:443 "GET /2011lvpd/lvyw/20251010/t20251010_527390646.shtml HTTP/1.1" 200 None
+2025-10-11 15:30:53,183 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:53] "GET /news_content?link=https%3A//www.cnr.cn/lvyou/2011lvpd/lvyw/20251010/t20251010_527390646.shtml&website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:54,601 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:54,602 - DEBUG - Sorting by date descending
+2025-10-11 15:30:54,602 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:54,602 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:54,602 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:54,602 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:54,602 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:54,602 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:54,604 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:54] "GET /?website=È«²¿À´Ô´&page=3&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:54,612 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:56,633 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:56,633 - DEBUG - Sorting by date descending
+2025-10-11 15:30:56,634 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:56,635 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:56,635 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:56,635 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:56,635 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:56,635 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:56,636 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:56] "GET /?website=È«²¿À´Ô´&page=4&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:30:56,644 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-10-11 15:30:58,241 - DEBUG - Before filter - News count: 92
+2025-10-11 15:30:58,242 - DEBUG - Sorting by date descending
+2025-10-11 15:30:58,242 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:30:58,242 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:30:58,242 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:30:58,242 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:30:58,243 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:30:58,243 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:30:58,243 - INFO - Found matching news at index 41: 2025Äê¹úÇìÖĞÇï¼ÙÆÚ¹úÄÚ³öÓÎ8.88ÒÚÈË´Î£¬¹úÄÚ³öÓÎ×Ü»¨·Ñ8090.06ÒÚÔª
+2025-10-11 15:30:58,244 - DEBUG - Starting new HTTPS connection (1): www.cnr.cn:443
+2025-10-11 15:30:58,646 - DEBUG - https://www.cnr.cn:443 "GET /lvyou/dj/20251009/t20251009_527389789.shtml HTTP/1.1" 301 162
+2025-10-11 15:30:58,648 - DEBUG - Starting new HTTPS connection (1): travel.cnr.cn:443
+2025-10-11 15:30:59,118 - DEBUG - https://travel.cnr.cn:443 "GET /dj/20251009/t20251009_527389789.shtml HTTP/1.1" 200 None
+2025-10-11 15:30:59,131 - INFO - 127.0.0.1 - - [11/Oct/2025 15:30:59] "GET /news_content?link=https%3A//www.cnr.cn/lvyou/dj/20251009/t20251009_527389789.shtml&website=È«²¿À´Ô´&page=4&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:31:00,309 - DEBUG - Before filter - News count: 92
+2025-10-11 15:31:00,309 - DEBUG - Sorting by date descending
+2025-10-11 15:31:00,310 - DEBUG - Top 5 news after filter and sort:
+2025-10-11 15:31:00,310 - DEBUG - 1. ÃÀÀöÖĞ¹úÌ¤¸èĞĞ
+2025-10-11 15:31:00,310 - DEBUG - 2. ÎÄÂÃĞÂ¹Û²ì
+2025-10-11 15:31:00,310 - DEBUG - 3. ¡°²©Îï¹İÈÈ¡±ÒıÁìÎÄÂÃÏû·ÑÉı¼¶
+2025-10-11 15:31:00,310 - DEBUG - 4. ÍøÂçÖĞ¹ú½Ú¡¤ÖĞÇï
+2025-10-11 15:31:00,310 - DEBUG - 5. AIÖĞ¹ú·¶¶ù
+2025-10-11 15:31:00,311 - INFO - 127.0.0.1 - - [11/Oct/2025 15:31:00] "GET /?website=È«²¿À´Ô´&page=4&page_size=12&sources=&search= HTTP/1.1" 200 -
+2025-10-11 15:31:00,322 - INFO - 127.0.0.1 - - [11/Oct/2025 15:31:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

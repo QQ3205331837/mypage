@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ news_item.title }} - 国内旅游资讯</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -96,7 +97,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container page-transition">
         <div class="header">
             <h1 class="text-center">国内旅游资讯</h1>
             
@@ -117,12 +118,12 @@
         
         <!-- 返回与前后导航 -->
         <div class="back-button d-flex gap-2">
-            <a href="/?website={{ current_website }}" class="btn btn-secondary">返回列表</a>
-            {% if prev_id is not none %}
-            <a href="/news_content/{{ prev_id }}?website={{ current_website }}" class="btn btn-outline-primary">上一条</a>
+            <a href="/?website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ sources }}&search={{ search }}" class="btn btn-secondary">返回列表</a>
+            {% if prev_link %}
+            <a href="/news_content?link={{ prev_link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ sources }}&search={{ search }}" class="btn btn-outline-primary">上一条</a>
             {% endif %}
-            {% if next_id is not none %}
-            <a href="/news_content/{{ next_id }}?website={{ current_website }}" class="btn btn-outline-primary">下一条</a>
+            {% if next_link %}
+            <a href="/news_content?link={{ next_link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ sources }}&search={{ search }}" class="btn btn-outline-primary">下一条</a>
             {% endif %}
         </div>
         
@@ -157,5 +158,56 @@
     
     <!-- Bootstrap 脚本 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 暗黑模式功能
+        (function(){
+            const key = 'theme-mode';
+            const root = document.documentElement;
+            function apply(mode){
+                if(mode==='dark'){
+                    root.setAttribute('data-bs-theme','dark');
+                    document.body.classList.add('bg-dark','text-light');
+                }else{
+                    root.removeAttribute('data-bs-theme');
+                    document.body.classList.remove('bg-dark','text-light');
+                }
+            }
+            const init = localStorage.getItem(key) || 'light';
+            apply(init);
+            window.toggleTheme = function(){
+                const cur = localStorage.getItem(key) || 'light';
+                const next = cur==='light' ? 'dark' : 'light';
+                localStorage.setItem(key,next);
+                apply(next);
+            }
+        })();
+
+        // 页面加载动画控制
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // 创建暗黑模式悬浮球
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.createElement('button');
+            themeToggle.className = 'theme-toggle-float';
+            themeToggle.innerHTML = '<span class="icon">🌙</span>';
+            themeToggle.title = '切换暗黑模式';
+            themeToggle.onclick = () => {
+                window.toggleTheme();
+                // 更新图标
+                const currentTheme = localStorage.getItem('theme-mode') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                themeToggle.innerHTML = newTheme === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
+            };
+            
+            // 设置初始图标
+            const currentTheme = localStorage.getItem('theme-mode') || 'light';
+            themeToggle.innerHTML = currentTheme === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
+            
+            document.body.appendChild(themeToggle);
+        });
+    </script>
 </body>
 </html>

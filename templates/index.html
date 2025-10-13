@@ -228,6 +228,11 @@
         </div>
     </div>
     
+    <!-- 暗黑模式悬浮球 -->
+    <button class="theme-toggle-float" onclick="toggleTheme()" title="切换暗黑模式">
+        <span class="icon">🌙</span>
+    </button>
+    
     <!-- Bootstrap 脚本 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -251,6 +256,12 @@
                 const next = cur==='light' ? 'dark' : 'light';
                 localStorage.setItem(key,next);
                 apply(next);
+                
+                // 更新悬浮球图标
+                const themeToggle = document.querySelector('.theme-toggle-float');
+                if (themeToggle) {
+                    themeToggle.innerHTML = next === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
+                }
             }
         })();
         // 抓取时间戳 -> 本地时间
@@ -289,6 +300,13 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+            // 设置悬浮球初始图标
+            const themeToggle = document.querySelector('.theme-toggle-float');
+            if (themeToggle) {
+                const currentTheme = localStorage.getItem('theme-mode') || 'light';
+                themeToggle.innerHTML = currentTheme === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
+            }
+            
             // 表单提交时显示加载状态
             const form = document.querySelector('form');
             const searchBtn = document.getElementById('searchBtn');
@@ -345,24 +363,7 @@
             // RSS 订阅按钮
             const rss = document.getElementById('rssBtn');
             if(rss && rss.href) rss.href = '/feed.xml?' + buildQuery({});
-            // 创建暗黑模式悬浮球
-            const themeToggle = document.createElement('button');
-            themeToggle.className = 'theme-toggle-float';
-            themeToggle.innerHTML = '<span class="icon">🌙</span>';
-            themeToggle.title = '切换暗黑模式';
-            themeToggle.onclick = () => {
-                window.toggleTheme();
-                // 更新图标
-                const currentTheme = localStorage.getItem('theme-mode') || 'light';
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                themeToggle.innerHTML = newTheme === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
-            };
-            
-            // 设置初始图标
-            const currentTheme = localStorage.getItem('theme-mode') || 'light';
-            themeToggle.innerHTML = currentTheme === 'dark' ? '<span class="icon">☀️</span>' : '<span class="icon">🌙</span>';
-            
-            document.body.appendChild(themeToggle);
+
 
             // 键盘快捷键支持
             document.addEventListener('keydown', function(e) {

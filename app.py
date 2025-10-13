@@ -780,6 +780,28 @@ def fetch_news(website):
                         link = f"https://travel.cnr.cn{link}"
                     else:
                         link = f"https://travel.cnr.cn/{link}"
+                # 修复双斜杠问题：只修复协议后的双斜杠，保留协议本身
+                if link.startswith('http'):
+                    # 将协议后的双斜杠替换为单斜杠
+                    protocol_end = link.find('//') + 2
+                    protocol_part = link[:protocol_end]
+                    path_part = link[protocol_end:]
+                    # 修复路径中的双斜杠
+                    path_part = path_part.replace('//', '/')
+                    link = protocol_part + path_part
+                
+                # 过滤明显无效的央广网链接模式（更精确的过滤）
+                invalid_cnr_patterns = [
+                    '/cnr_404/',      # 直接404页面
+                    '//cnr.cn/',      # 跨域链接
+                    '/2024zt/ai/',    # 特定的AI专题页面（已知404）
+                    '/news.cnr.cn/2024zt/',  # 跨域专题页面
+                    '/www.cnr.cn/2024zt/'    # 跨域专题页面
+                ]
+                
+                if any(pattern in link for pattern in invalid_cnr_patterns):
+                    print(f"过滤无效央广网链接: {link}")
+                    continue
             elif website == "人民网旅游频道":
                 # 人民网旅游频道特定过滤
                 if "javascript" in link.lower() or "#" in link:
@@ -890,6 +912,23 @@ def extract_date_from_link(link, website):
 def get_news_content(link, website):
     """获取新闻的详细内容"""
     try:
+        # 验证链接格式，过滤无效链接
+        if not link or not isinstance(link, str) or len(link.strip()) < 10:
+            return "链接格式无效"
+        
+        # 修复链接中的双斜杠问题
+        link = link.replace('//', '/').replace('https:/', 'https://').replace('http:/', 'http://')
+        
+        # 过滤明显无效的链接模式
+        invalid_patterns = [
+            'javascript:', '#', 'mailto:', 'tel:', 'ftp:', 'file:',
+            '//news.cnr.cn//',  # 央广网特定的无效链接模式
+            '//travel.cnr.cn//'  # 央广网特定的无效链接模式
+        ]
+        
+        if any(pattern in link for pattern in invalid_patterns):
+            return "链接格式无效"
+        
         # 设置请求头，模拟浏览器
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0",
@@ -899,6 +938,13 @@ def get_news_content(link, website):
         
         # 请求新闻详情页
         response = fetch_url_with_retries(link, headers=headers, timeout=10, retries=3)
+        
+        # 检查响应状态，过滤404等错误页面
+        if response.status_code != 200:
+            if response.status_code == 404:
+                return "页面不存在(404)"
+            elif response.status_code >= 400:
+                return f"页面访问失败({response.status_code})"
         
         # 尝试不同的编码方式解决乱码问题
         if website == "央广网文旅频道":
@@ -926,17 +972,27 @@ def get_news_content(link, website):
         main_content = None
         if website == "中国旅游新闻网":
             # 中国旅游新闻网特定内容提取
-            main_content = soup.select_one('div.article-content, div#article_body')
-        elif website == "环球网旅游频道":
-            # 环球网旅游频道特定内容提取，增加更多可能的容器选择器
-            main_content = soup.select_one('div.article-content, div#text_content, div.article-text, div.content')
+            main_content = soup.select_one('div.article-content, div#article_body, div.content, div.main-content, div.article-body')
         elif website == "人民网旅游频道":
             # 人民网旅游频道特定内容提取
-            main_content = soup.select_one('div#rwb_zw, div#articleText, div.rm_txt_con')
+            main_content = soup.select_one('div#rwb_zw, div#articleText, div.rm_txt_con, div.article-content, div.content, div.main')
+        elif website == "央广网文旅频道":
+            # 央广网文旅频道特定内容提取
+            main_content = soup.select_one('div.article-content, div.content, div.main, div.article-body, div.article-text')
         
         # 如果没有找到特定内容，尝试通用选择器
         if not main_content:
-            main_content = soup.select_one('div.content, div#article, div.article-content, div.content-main')
+            main_content = soup.select_one('div.content, div#article, div.article-content, div.content-main, div.main-content, div.article-body, div.article-text, div.text-content')
+        
+        # 如果仍然没有找到，尝试更通用的选择器
+        if not main_content:
+            # 查找包含大量文本的容器
+            content_candidates = soup.select('div, article, section')
+            for candidate in content_candidates:
+                text_length = len(candidate.get_text(strip=True))
+                if text_length > 200:  # 假设主要内容至少200字符
+                    main_content = candidate
+                    break
         
         if main_content:
             # 2. 首先尝试提取p标签内容

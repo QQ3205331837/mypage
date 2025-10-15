@@ -1243,6 +1243,8 @@ def sitemap_xml():
 </urlset>"""
     return Response(xml, mimetype='application/xml; charset=utf-8')
 # Vercel适配 - WSGI接口
+# 根据Vercel Python运行时要求，使用正确的WSGI应用对象
+# Vercel会自动识别Flask应用对象
 handler = app
 
 # 本地运行入口点

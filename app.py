@@ -13,10 +13,12 @@ from datetime import datetime
 import re
 from markupsafe import Markup
 import logging
+import threading
+import concurrent.futures
 
 # 配置日志 - 适配Vercel只读文件系统
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.WARNING,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler()  # 只使用控制台输出，避免文件写入
@@ -46,8 +48,15 @@ def _check_admin_key():
 # 网站配置信息
 websites = {
     "中国旅游新闻网": {
-        "url": "https://www.ctnews.com.cn/jujiao/node_1823.html",
-        "link_css": 'a[href*="/content/"]',
+        "url": "https://www.ctnews.com.cn/",
+        "link_css": [
+            'a[href*="/content/"]',
+            'div.list a',
+            'ul li a',
+            'article a',
+            '.news-list a',
+            '.article-list a'
+        ],
         "base_url": "https://www.ctnews.com.cn",
         "date_pattern": r"/content/(\\d{4}-\\d{2})/(\\d{2})/"
     },
@@ -98,21 +107,8 @@ def index():
         deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
         news_data = deduped
     elif website == ALL_SOURCES_LABEL:
-        # 聚合所有来源
-        aggregated = []
-        for site in websites.keys():
-            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
-        # 去重（按链接）
-        seen = set()
-        deduped = []
-        for item in aggregated:
-            link = item.get('link')
-            if link and link not in seen:
-                seen.add(link)
-                deduped.append(item)
-        # 按日期倒序
-        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
-        news_data = deduped
+        # 使用并行抓取优化"全部来源"的加载速度
+        news_data = get_all_news_parallel(force_refresh=refresh)
     else:
         news_data = get_news_with_cache(website, force_refresh=refresh)
 
@@ -518,6 +514,67 @@ def get_news_with_cache(website, force_refresh=False):
     }
     return data
 
+def get_all_news_parallel(force_refresh=False):
+    """并行获取所有网站的新闻数据"""
+    now = time.time()
+    
+    # 检查是否有缓存的聚合数据
+    cache_key = "all_sources"
+    cache_entry = _cache.get(cache_key)
+    if not force_refresh and cache_entry and (now - cache_entry["ts"]) < CACHE_TTL_SECONDS:
+        return cache_entry["data"]
+    
+    t0 = time.time()
+    
+    # 使用线程池并行抓取，增加线程数并设置超时
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        # 提交所有网站的抓取任务，设置超时时间
+        future_to_website = {
+            executor.submit(get_news_with_cache, website, force_refresh): website 
+            for website in websites.keys()
+        }
+        
+        # 收集所有结果，设置超时避免长时间等待
+        aggregated = []
+        try:
+            for future in concurrent.futures.as_completed(future_to_website, timeout=15):
+                website = future_to_website[future]
+                try:
+                    data = future.result(timeout=10)  # 单个任务超时10秒
+                    aggregated.extend(data)
+                except concurrent.futures.TimeoutError:
+                    logger.warning(f"抓取 {website} 超时")
+                except Exception as e:
+                    logger.warning(f"抓取 {website} 失败: {str(e)}")
+        except concurrent.futures.TimeoutError:
+            logger.warning("并行抓取整体超时，返回已完成的抓取结果")
+        
+        # 去重（按链接）
+        seen = set()
+        deduped = []
+        for item in aggregated:
+            link = item.get('link')
+            if link and link not in seen:
+                seen.add(link)
+                deduped.append(item)
+        
+        # 按日期倒序排序
+        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+        
+        t1 = time.time()
+        
+        # 缓存聚合结果
+        _cache[cache_key] = {"data": deduped, "ts": now}
+        
+        # 记录指标
+        _metrics['last_fetch'][cache_key] = {
+            'ts': int(now),
+            'duration_ms': int((t1 - t0) * 1000),
+            'count': len(deduped),
+        }
+        
+        return deduped
+
 def get_default_headers():
     return {
         "User-Agent": (
@@ -546,7 +603,7 @@ def fetch_url(url, headers=None, timeout=10):
         target = f"{proxy_base}?url={quote_plus(url)}"
     return requests.get(target, headers=headers, timeout=timeout)
 
-def fetch_url_with_retries(url, headers=None, timeout=10, retries=3):
+def fetch_url_with_retries(url, headers=None, timeout=8, retries=2):
     last_exc = None
     for attempt in range(retries):
         try:
@@ -760,6 +817,15 @@ def fetch_news(website):
                 # 处理多种可能的重复格式
                 if isinstance(link, str) and isinstance(base_url, str) and link.startswith(base_url + base_url):
                     link = link.replace(base_url + base_url, base_url)
+                
+                # 处理域名重复问题（如 travel.cnr.cn/travel.cnr.cn/）
+                if isinstance(link, str) and isinstance(base_url, str):
+                    # 提取域名部分（去除协议）
+                    domain = base_url.replace('https://', '').replace('http://', '')
+                    # 检查是否包含重复域名模式
+                    if f"{domain}/{domain}" in link:
+                        link = link.replace(f"{domain}/{domain}", domain)
+                
                 # 处理可能的双斜杠问题
                 if '//' in link and link.startswith('http'):
                     parts = link.split('//')
@@ -796,7 +862,14 @@ def fetch_news(website):
                     '//cnr.cn/',      # 跨域链接
                     '/2024zt/ai/',    # 特定的AI专题页面（已知404）
                     '/news.cnr.cn/2024zt/',  # 跨域专题页面
-                    '/www.cnr.cn/2024zt/'    # 跨域专题页面
+                    '/www.cnr.cn/2024zt/',   # 跨域专题页面
+                    '/404',           # 通用404页面
+                    '/error',         # 错误页面
+                    'cnr.cn/404',     # 央广网404页面
+                    '/cnr_404',       # 央广网404页面（无斜杠）
+                    '/404.html',      # 404错误页面
+                    '/error.html',    # 错误页面
+                    'cnr.cn/404.html' # 央广网404页面
                 ]
                 
                 if any(pattern in link for pattern in invalid_cnr_patterns):
@@ -837,6 +910,29 @@ def fetch_news(website):
             
             # 从链接中提取日期信息或设置默认日期
             date_str = extract_date_from_link(link, website)
+            
+            # 对央广网链接进行预验证，过滤会重定向到404的链接
+            if website == "央广网文旅频道":
+                try:
+                    # 快速检查链接是否会重定向到404
+                    headers = get_default_headers()
+                    response = fetch_url(link, headers=headers, timeout=5)
+                    
+                    # 检查是否重定向到cnr_404页面
+                    if response.history:  # 如果有重定向历史
+                        final_url = response.url
+                        if 'cnr_404' in final_url or '404' in final_url:
+                            print(f"预验证过滤无效央广网链接（重定向到404）: {link} -> {final_url}")
+                            continue
+                    
+                    # 检查最终状态码
+                    if response.status_code != 200:
+                        print(f"预验证过滤无效央广网链接（状态码{response.status_code}）: {link}")
+                        continue
+                        
+                except Exception as e:
+                    print(f"预验证央广网链接失败，跳过: {link}, 错误: {str(e)}")
+                    continue
             
             # 保存新闻数据
             news_data.append({
@@ -919,11 +1015,29 @@ def get_news_content(link, website):
         # 修复链接中的双斜杠问题
         link = link.replace('//', '/').replace('https:/', 'https://').replace('http:/', 'http://')
         
+        # 处理域名重复问题（如 travel.cnr.cn/travel.cnr.cn/）
+        if website == "央广网文旅频道":
+            domain = "travel.cnr.cn"
+            if f"{domain}/{domain}" in link:
+                link = link.replace(f"{domain}/{domain}", domain)
+        
         # 过滤明显无效的链接模式
         invalid_patterns = [
             'javascript:', '#', 'mailto:', 'tel:', 'ftp:', 'file:',
             '//news.cnr.cn//',  # 央广网特定的无效链接模式
-            '//travel.cnr.cn//'  # 央广网特定的无效链接模式
+            '//travel.cnr.cn//',  # 央广网特定的无效链接模式
+            '/cnr_404/',      # 直接404页面
+            '//cnr.cn/',      # 跨域链接
+            '/2024zt/ai/',    # 特定的AI专题页面（已知404）
+            '/news.cnr.cn/2024zt/',  # 跨域专题页面
+            '/www.cnr.cn/2024zt/',   # 跨域专题页面
+            '/404',           # 通用404页面
+            '/error',         # 错误页面
+            'cnr.cn/404',     # 央广网404页面
+            '/cnr_404',       # 央广网404页面（无斜杠）
+            '/404.html',      # 404错误页面
+            '/error.html',    # 错误页面
+            'cnr.cn/404.html' # 央广网404页面
         ]
         
         if any(pattern in link for pattern in invalid_patterns):
@@ -1128,6 +1242,9 @@ def sitemap_xml():
 {xml_urls}
 </urlset>"""
     return Response(xml, mimetype='application/xml; charset=utf-8')
+# Vercel适配 - WSGI接口
+handler = app
+
 # 本地运行入口点
 if __name__ == '__main__':
     # 确保中文正常显示

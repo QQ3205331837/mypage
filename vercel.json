@@ -3,14 +3,13 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": { 
+        "runtime": "python3.9"
+      }
     },
     {
-      "src": "static/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "templates/*",
+      "src": "static/**",
       "use": "@vercel/static"
     }
   ],

@@ -1243,9 +1243,7 @@ def sitemap_xml():
 </urlset>"""
     return Response(xml, mimetype='application/xml; charset=utf-8')
 # Vercel适配 - WSGI接口
-# 根据Vercel Python运行时要求，使用正确的WSGI应用对象
-# Vercel会自动识别Flask应用对象
-app = app
+# 确保Flask应用正确配置WSGI接口
 
 # 本地运行入口点
 if __name__ == '__main__':
@@ -1255,3 +1253,7 @@ if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     
     app.run(debug=False, host='0.0.0.0', port=5000)
+
+# 确保Flask应用有正确的WSGI接口
+# 这行确保app.wsgi_app属性存在且正确
+app.wsgi_app = app.wsgi_app

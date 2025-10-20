@@ -2,14 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "static/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/app.py"
+      "dest": "/api/index.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task",
+    "FLASK_ENV": "production",
+    "PYTHON_VERSION": "3.9"
+  }
 }

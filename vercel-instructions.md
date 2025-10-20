@@ -1,103 +1,87 @@
-# Vercel 部署说明
+# Vercel 部署指南
 
-## 项目适配说明
+## 部署步骤
 
-本项目已完全适配 Vercel 部署环境，包含以下优化：
+1. **准备项目文件**
+   - 确保所有文件都在 `news_web/mypage` 目录下
+   - 项目结构应该包含：
+     - `app.py` - 主应用文件
+     - `requirements.txt` - Python依赖
+     - `vercel.json` - Vercel配置
+     - `package.json` - Node.js配置（可选）
+     - `static/` - 静态资源文件夹
+     - `templates/` - HTML模板文件夹
+     - `api/` - API路由文件夹
 
-### ✅ 已完成的适配
+2. **Vercel 部署方式**
 
-1. **WSGI 接口适配**
-   - 添加了 `handler = app` 作为 Vercel 的 WSGI 入口点
-   - 保持本地开发和生产环境的一致性
+### 方式一：通过 Vercel CLI
+```bash
+# 安装 Vercel CLI
+npm i -g vercel
 
-2. **静态文件服务**
-   - 配置了 `vercel.json` 正确路由静态文件
-   - 静态文件通过 `@vercel/static` 处理，提高性能
+# 登录 Vercel
+vercel login
 
-3. **依赖管理**
-   - `requirements.txt` 包含所有必要依赖
-   - 兼容 Vercel Python 运行时环境
-
-4. **无服务器环境优化**
-   - 使用内存缓存替代文件缓存
-   - 适配 Vercel 的只读文件系统
-   - 日志配置优化，避免文件写入
-
-### 🚀 部署步骤
-
-1. **连接 GitHub 仓库**
-   ```bash
-   # 将项目推送到 GitHub
-   git init
-   git add .
-   git commit -m "适配 Vercel 部署"
-   git branch -M main
-   git remote add origin <your-github-repo>
-   git push -u origin main
-   ```
-
-2. **Vercel 部署**
-   - 访问 [Vercel](https://vercel.com)
-   - 导入 GitHub 仓库
-   - 选择项目根目录
-   - 使用默认配置部署
-
-3. **环境变量（可选）**
-   ```env
-   # 如果需要代理配置
-   PROXY_BASE=https://your-proxy.workers.dev
-   
-   # 管理密钥（可选）
-   ADMIN_KEY=your-secret-key
-   ```
-
-### 📁 项目结构
-
-```
-travel_news_web/
-├── app.py                 # 主应用文件（已适配 Vercel）
-├── vercel.json            # Vercel 配置文件
-├── requirements.txt       # Python 依赖
-├── static/               # 静态文件目录
-│   ├── style.css         # 样式文件
-│   └── favicon.ico       # 网站图标
-├── templates/            # 模板文件
-│   ├── index.html        # 首页模板
-│   └── news_content.html # 新闻详情模板
-└── vercel-instructions.md # 本文件
+# 在项目目录部署
+cd news_web/mypage
+vercel
 ```
 
-### 🔧 功能验证
+### 方式二：通过 GitHub 集成
+1. 将代码推送到 GitHub 仓库
+2. 在 Vercel 控制台连接 GitHub 账户
+3. 导入项目并自动部署
 
-部署后请验证以下功能：
+### 方式三：通过 Vercel 网页界面
+1. 访问 [vercel.com](https://vercel.com)
+2. 点击 "New Project"
+3. 选择 GitHub 仓库或直接上传项目文件
 
-- [ ] 首页加载正常（全部来源、单个来源）
-- [ ] 新闻搜索和过滤功能
-- [ ] 分页浏览功能
-- [ ] 新闻详情页面
-- [ ] 数据导出功能（JSON、CSV、RSS）
-- [ ] 静态资源加载（CSS、图标）
+## 环境变量配置
 
-### ⚡ 性能优化
+在 Vercel 项目设置中配置以下环境变量（可选）：
 
-- 并行抓取多个新闻源
-- 智能缓存策略
-- 线程安全的并发处理
-- 优化的日志级别（WARNING）
+```env
+# 代理设置（如果需要）
+PROXY_BASE=https://your-proxy-domain.workers.dev
 
-### 🐛 故障排除
+# 管理员密钥（用于调试接口）
+ADMIN_KEY=your-secret-key
 
-如果部署遇到问题：
+# Flask 配置
+FLASK_ENV=production
+```
 
-1. **检查构建日志**：查看 Vercel 部署日志中的错误信息
-2. **验证依赖**：确保 `requirements.txt` 中的包版本兼容
-3. **测试本地**：使用 `python app.py` 在本地测试功能
-4. **静态文件问题**：检查 `vercel.json` 中的静态文件路由配置
+## 部署注意事项
 
-### 📞 技术支持
+1. **静态文件处理**：Vercel 会自动处理 `static/` 文件夹中的静态资源
+2. **Python 版本**：确保 `runtime.txt` 指定正确的 Python 版本
+3. **依赖管理**：所有依赖必须在 `requirements.txt` 中列出
+4. **路径问题**：所有文件路径使用相对路径，避免绝对路径
 
-如有问题，请检查：
-- Vercel 文档：https://vercel.com/docs
-- Python 运行时：https://vercel.com/docs/runtimes/python
+## 故障排除
 
-项目已准备就绪，可以直接部署到 Vercel！
+### 常见问题
+
+1. **导入错误**：检查 `requirements.txt` 中的依赖版本
+2. **静态资源404**：确保 `vercel.json` 中的路由配置正确
+3. **超时问题**：Vercel 函数默认10秒超时，可在配置中调整
+
+### 调试方法
+
+1. 检查 Vercel 部署日志
+2. 使用 `/healthz` 端点测试应用状态
+3. 查看 `/metrics` 端点获取性能数据（需要 ADMIN_KEY）
+
+## 性能优化建议
+
+1. **缓存策略**：合理设置 HTTP 缓存头
+2. **CDN 利用**：Vercel 自动提供全球 CDN
+3. **函数优化**：减少冷启动时间，优化依赖大小
+
+## 监控和维护
+
+1. **日志监控**：通过 Vercel 控制台查看实时日志
+2. **性能监控**：使用 Vercel Analytics 监控网站性能
+3. **自动部署**：配置 GitHub 自动部署，确保代码更新及时发布

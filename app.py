@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from flask import Response
+from flask import Response, send_from_directory
 import csv
 import io
 import requests
@@ -14,17 +14,47 @@ import re
 from markupsafe import Markup
 import logging
 
-# 配置日志 - 适配Vercel只读文件系统
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler()  # 只使用控制台输出，避免文件写入
-    ]
-)
+# 配置日志 - 适配Vercel无服务器环境
+def setup_logging():
+    """Vercel环境适配的日志配置"""
+    import os
+    
+    # Vercel环境变量
+    is_vercel = os.environ.get('VERCEL') or os.environ.get('NOW_REGION')
+    
+    if is_vercel:
+        # Vercel环境：简化日志，避免文件操作
+        logging.basicConfig(
+            level=logging.INFO,  # Vercel生产环境使用INFO级别
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[logging.StreamHandler()]
+        )
+    else:
+        # 本地开发环境：详细日志
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[logging.StreamHandler()]
+        )
+
+setup_logging()
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
+
+# Vercel适配：优化静态文件服务
+@app.route('/static/image/<path:filename>')
+def serve_static_image(filename):
+    """直接服务static/image目录下的图片文件"""
+    static_folder = app.static_folder or 'static'
+    return send_from_directory(os.path.join(static_folder, 'image'), filename)
+
+# 兼容旧路径：/image/ -> /static/image/
+@app.route('/image/<path:filename>')
+def serve_image(filename):
+    """兼容旧图片路径，重定向到新的静态路径"""
+    static_folder = app.static_folder or 'static'
+    return send_from_directory(os.path.join(static_folder, 'image'), filename)
 
 # 简单内存缓存：key=(website), value={"data": list, "ts": epoch_seconds}
 CACHE_TTL_SECONDS = 600  # 10分钟
@@ -162,6 +192,24 @@ def index():
 def filter_news(news_data, search_text):
     # 添加过滤前后的日志
     logger.debug(f"Before filter - News count: {len(news_data)}")
+    
+    # 过滤无效链接
+    invalid_links = [
+        "https://travel.cnr.cn/travel.cnr.cn/mlzgtgx",
+        "https://travel.cnr.cn/travel.cnr.cn/hydt/"
+    ]
+    
+    # 过滤无效链接
+    filtered_news = []
+    for news in news_data:
+        link = news.get('link', '')
+        # 跳过无效链接
+        if link in invalid_links:
+            logger.debug(f"Filtering invalid link: {link}")
+            continue
+        filtered_news.append(news)
+    news_data = filtered_news
+    logger.debug(f"After invalid link filter - News count: {len(news_data)}")
     
     # 关键词过滤
     if search_text:
@@ -1128,11 +1176,16 @@ def sitemap_xml():
 {xml_urls}
 </urlset>"""
     return Response(xml, mimetype='application/xml; charset=utf-8')
-# 本地运行入口点
+# Vercel适配：标准Flask应用入口点
 if __name__ == '__main__':
     # 确保中文正常显示
     import sys
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     
-    app.run(debug=False)
+    # 本地运行入口点
+    print("Running in local environment")
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+else:
+    # Vercel环境使用
+    application = app

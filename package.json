@@ -1,0 +1,20 @@
+{
+  "name": "travel-news-web",
+  "version": "1.0.0",
+  "description": "国内旅游资讯聚合网站 - Vercel部署版本",
+  "main": "app.py",
+  "scripts": {
+    "dev": "python app.py",
+    "start": "python app.py",
+    "build": "echo 'No build step required for Python Flask app'"
+  },
+  "engines": {
+    "node": ">=18",
+    "python": "3.9"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": ["flask", "python", "news", "travel", "vercel"],
+  "author": "Travel News Team",
+  "license": "MIT"
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国内旅游资讯 - 首页</title>
+    <title>{% if tab_type == 'reports' %}公司周报{% else %}国内旅游资讯{% endif %} - 首页</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -169,6 +169,51 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
+        /* 选项卡样式 */
+        .tab-navigation {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .tab-navigation {
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
+        }
+        
+        .nav-tabs {
+            border: none;
+            justify-content: center;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            margin: 0 5px;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background: rgba(30, 144, 255, 0.1);
+            color: #1E90FF;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(135deg, #1E90FF, #4682B4);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+        }
+        
+        .tab-content {
+            margin-top: 20px;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .container {
@@ -207,46 +252,75 @@
                 <h1 class="text-center mb-0" style="font-size: 2.5rem; font-weight: 700; color: #1E90FF; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">西游洞旅游快报</h1>
             </div>
             
-            <!-- 网站选择器 -->
-            <div class="source-selector">
-                <form action="/" method="get" class="row g-3">
-                    <div class="col-md-4">
-                        <label for="website" class="form-label">资讯来源:</label>
-                        <select name="website" id="website" class="form-select" onchange="this.form.submit()">
-                            {% for site in websites %}
-                                <option value="{{ site }}" {% if site == current_website %}selected{% endif %}>{{ site }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    
-                    <!-- 搜索框 -->
-                    <div class="col-md-8">
-                        <label for="search" class="form-label">搜索:</label>
-                        <div class="input-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="输入关键词搜索资讯... (Ctrl+K)" value="{{ search_text }}">
-                            <button type="submit" class="btn btn-primary" id="searchBtn">
-                                <span class="btn-text">搜索</span>
-                                <span class="spinner-border spinner-border-sm d-none" id="searchSpinner" role="status"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="form-label">多来源聚合（可多选）:</label>
-                        <div class="d-flex flex-wrap gap-2">
-                            {% for site in websites if site != '全部来源' %}
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ site }}" id="src-{{ loop.index }}">
-                                <label class="form-check-label" for="src-{{ loop.index }}">{{ site }}</label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        <input type="hidden" name="sources" id="sourcesHidden" value="{{ selected_sources }}">
-                        <div class="form-text">选择两个及以上来源将忽略上方单一来源选择。</div>
-                    </div>
-                </form>
+            <!-- 选项卡导航 -->
+            <div class="tab-navigation mb-4">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link {% if tab_type == 'news' %}active{% endif %}" id="nav-news-tab" data-bs-toggle="tab" data-bs-target="#nav-news" type="button" role="tab" aria-controls="nav-news" aria-selected="{% if tab_type == 'news' %}true{% else %}false{% endif %}">
+                        国内新闻资讯
+                    </button>
+                    <button class="nav-link {% if tab_type == 'reports' %}active{% endif %}" id="nav-reports-tab" data-bs-toggle="tab" data-bs-target="#nav-reports" type="button" role="tab" aria-controls="nav-reports" aria-selected="{% if tab_type == 'reports' %}true{% else %}false{% endif %}">
+                        公司周报
+                    </button>
+                </div>
             </div>
             
-            <p class="text-center text-muted">当前显示: {{ current_website }} - 共 {{ news_count }} 条资讯</p>
+            <!-- 选项卡内容 -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- 国内新闻资讯选项卡 -->
+                <div class="tab-pane fade {% if tab_type == 'news' %}show active{% endif %}" id="nav-news" role="tabpanel" aria-labelledby="nav-news-tab">
+                    <!-- 网站选择器 -->
+                    <div class="source-selector">
+                        <form action="/" method="get" class="row g-3">
+                            <input type="hidden" name="tab" value="news">
+                            <div class="col-md-4">
+                                <label for="website" class="form-label">资讯来源:</label>
+                                <select name="website" id="website" class="form-select" onchange="this.form.submit()">
+                                    {% for site in websites %}
+                                        <option value="{{ site }}" {% if site == current_website %}selected{% endif %}>{{ site }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <!-- 搜索框 -->
+                            <div class="col-md-8">
+                                <label for="search" class="form-label">搜索:</label>
+                                <div class="input-group">
+                                    <input type="text" name="search" id="search" class="form-control" placeholder="输入关键词搜索资讯... (Ctrl+K)" value="{{ search_text }}">
+                                    <button type="submit" class="btn btn-primary" id="searchBtn">
+                                        <span class="btn-text">搜索</span>
+                                        <span class="spinner-border spinner-border-sm d-none" id="searchSpinner" role="status"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">多来源聚合（可多选）:</label>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for site in websites if site != '全部来源' %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ site }}" id="src-{{ loop.index }}">
+                                        <label class="form-check-label" for="src-{{ loop.index }}">{{ site }}</label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <input type="hidden" name="sources" id="sourcesHidden" value="{{ selected_sources }}">
+                                <div class="form-text">选择两个及以上来源将忽略上方单一来源选择。</div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <p class="text-center text-muted">当前显示: {{ current_website }} - 共 {{ news_count }} 条资讯</p>
+                </div>
+                
+                <!-- 公司周报选项卡 -->
+                <div class="tab-pane fade {% if tab_type == 'reports' %}show active{% endif %}" id="nav-reports" role="tabpanel" aria-labelledby="nav-reports-tab">
+                    <div class="text-center mb-4">
+                        <h3 class="text-primary">公司周报</h3>
+                        <p class="text-muted">来自微信专栏的最新公司动态和活动信息</p>
+                    </div>
+                    
+                    <p class="text-center text-muted">共 {{ news_count }} 条周报</p>
+                </div>
+            </div>
         </div>
         
         <!-- 新闻列表 -->
@@ -266,54 +340,100 @@
                     <label class="form-check-label" for="autoRefreshSwitch">5分钟自动刷新</label>
                 </div>
             </div>
-            {% if news_data %}
-                <div class="row">
-                    {% for news in news_data %}
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card" style="position: relative; overflow: hidden;">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="/news_content?link={{ news.link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ selected_sources }}&search={{ search_text }}" class="text-decoration-none" title="查看详情">{{ news.title | highlight(search_text) }}</a>
-                                    </h5>
-                                    <h6 class="card-subtitle mb-2">
-                                        <span class="badge me-1 badge-source-{{ news.source }}">{{ news.source }}</span>
-                                        发布日期: {{ news.date }}
-                                    </h6>
-                                    <a href="/news_content?link={{ news.link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ selected_sources }}&search={{ search_text }}" class="btn btn-primary">查看详情</a>
-                                    <a href="{{ news.link }}" target="_blank" class="btn btn-secondary ml-2">原文链接</a>
+            
+            <!-- 国内新闻资讯内容 -->
+            {% if tab_type == 'news' %}
+                {% if news_data %}
+                    <div class="row">
+                        {% for news in news_data %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card" style="position: relative; overflow: hidden;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="/news_content?link={{ news.link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ selected_sources }}&search={{ search_text }}" class="text-decoration-none" title="查看详情">{{ news.title | highlight(search_text) }}</a>
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2">
+                                            <span class="badge me-1 badge-source-{{ news.source }}">{{ news.source }}</span>
+                                            发布日期: {{ news.date }}
+                                        </h6>
+                                        <a href="/news_content?link={{ news.link | urlencode }}&website={{ current_website }}&page={{ page }}&page_size={{ page_size }}&sources={{ selected_sources }}&search={{ search_text }}" class="btn btn-primary">查看详情</a>
+                                        <a href="{{ news.link }}" target="_blank" class="btn btn-secondary ml-2">原文链接</a>
+                                    </div>
+                                    <!-- 卡片底部拼接图片 - 平铺延伸 -->
+                                    <div style="position: relative; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('{{ url_for('static', filename='image/title.png') }}'); background-repeat: repeat-x; background-size: auto 100%; border-radius: 0 0 12px 12px;"></div>
                                 </div>
-                                <!-- 卡片底部拼接图片 - 平铺延伸 -->
-                                <div style="position: relative; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('{{ url_for('static', filename='image/title.png') }}'); background-repeat: repeat-x; background-size: auto 100%; border-radius: 0 0 12px 12px;"></div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="d-flex justify-content-end mb-2 gap-2">
-                    <div class="btn-group" role="group" aria-label="exports">
-                        <a class="btn btn-outline-secondary btn-sm" id="exportJson" href="#">导出JSON</a>
-                        <a class="btn btn-outline-secondary btn-sm" id="exportCsv" href="#">导出CSV</a>
+                        {% endfor %}
                     </div>
-                    <a class="btn btn-outline-primary btn-sm" id="rssBtn" href="#">RSS订阅</a>
-                </div>
-                <!-- 分页控件 -->
-                <nav aria-label="pagination" class="mt-3">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item {% if page <= 1 %}disabled{% endif %}">
-                            <a id="prevPage" class="page-link" href="/?website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page-1 }}&page_size={{ page_size }}">上一页</a>
-                        </li>
-                        <li class="page-item disabled"><a class="page-link" href="#">{{ page }}/{{ total_pages }}</a></li>
-                        <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
-                            <a id="nextPage" class="page-link" href="/?website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page+1 }}&page_size={{ page_size }}">下一页</a>
-                        </li>
-                    </ul>
-                </nav>
-            {% else %}
-                <div class="text-center py-5">
-                    <h3 class="text-muted">暂无相关资讯</h3>
-                    {% if search_text %}
-                        <p class="text-muted mt-2">未找到包含 "{{ search_text }}" 的资讯</p>
-                    {% endif %}
-                </div>
+                    <div class="d-flex justify-content-end mb-2 gap-2">
+                        <div class="btn-group" role="group" aria-label="exports">
+                            <a class="btn btn-outline-secondary btn-sm" id="exportJson" href="#">导出JSON</a>
+                            <a class="btn btn-outline-secondary btn-sm" id="exportCsv" href="#">导出CSV</a>
+                        </div>
+                        <a class="btn btn-outline-primary btn-sm" id="rssBtn" href="#">RSS订阅</a>
+                    </div>
+                    <!-- 分页控件 -->
+                    <nav aria-label="pagination" class="mt-3">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+                                <a id="prevPage" class="page-link" href="/?tab=news&website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page-1 }}&page_size={{ page_size }}">上一页</a>
+                            </li>
+                            <li class="page-item disabled"><a class="page-link" href="#">{{ page }}/{{ total_pages }}</a></li>
+                            <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
+                                <a id="nextPage" class="page-link" href="/?tab=news&website={{ current_website }}&search={{ search_text }}&sources={{ selected_sources }}&page={{ page+1 }}&page_size={{ page_size }}">下一页</a>
+                            </li>
+                        </ul>
+                    </nav>
+                {% else %}
+                    <div class="text-center py-5">
+                        <h3 class="text-muted">暂无相关资讯</h3>
+                        {% if search_text %}
+                            <p class="text-muted mt-2">未找到包含 "{{ search_text }}" 的资讯</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            
+            <!-- 公司周报内容 -->
+            {% elif tab_type == 'reports' %}
+                {% if company_reports %}
+                    <div class="row">
+                        {% for report in company_reports %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card" style="position: relative; overflow: hidden;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{ report.title.replace('\x26amp;', '&').replace('&amp;', '&') }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2">
+                                            <span class="badge me-1 badge-source-{{ report.source }}">{{ report.source }}</span>
+                                            发布日期: {{ report.date }}
+                                        </h6>
+                                        <a href="{{ report.link }}" target="_blank" class="btn btn-primary">查看原文</a>
+                                    </div>
+                                    <!-- 卡片底部拼接图片 - 平铺延伸 -->
+                                    <div style="position: relative; bottom: 0; left: 0; width: 100%; height: 40px; background-image: url('{{ url_for('static', filename='image/title.png') }}'); background-repeat: repeat-x; background-size: auto 100%; border-radius: 0 0 12px 12px;"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- 分页控件 -->
+                    <nav aria-label="pagination" class="mt-3">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+                                <a id="prevPage" class="page-link" href="/?tab=reports&page={{ page-1 }}&page_size={{ page_size }}">上一页</a>
+                            </li>
+                            <li class="page-item disabled"><a class="page-link" href="#">{{ page }}/{{ total_pages }}</a></li>
+                            <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
+                                <a id="nextPage" class="page-link" href="/?tab=reports&page={{ page+1 }}&page_size={{ page_size }}">下一页</a>
+                            </li>
+                        </ul>
+                    </nav>
+                {% else %}
+                    <div class="text-center py-5">
+                        <h3 class="text-muted">暂无公司周报</h3>
+                        <p class="text-muted mt-2">请稍后刷新或检查网络连接</p>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
         
@@ -459,6 +579,34 @@
             // 暗黑模式已在新系统中自动初始化
             // 其他功能保持不变
             
+            // 选项卡切换处理
+            const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabType = this.id === 'nav-news-tab' ? 'news' : 'reports';
+                    
+                    // 更新URL参数，保持其他参数不变
+                    const urlParams = new URLSearchParams(window.location.search);
+                    urlParams.set('tab', tabType);
+                    
+                    // 如果是切换到新闻选项卡，保留新闻相关参数
+                    if (tabType === 'news') {
+                        if (!urlParams.has('website')) {
+                            urlParams.set('website', '人民网旅游频道');
+                        }
+                    } else {
+                        // 切换到周报选项卡时，移除新闻相关参数
+                        urlParams.delete('website');
+                        urlParams.delete('search');
+                        urlParams.delete('sources');
+                    }
+                    
+                    // 跳转到新URL
+                    window.location.href = '/?' + urlParams.toString();
+                });
+            });
+            
             // 表单提交时显示加载状态
             const form = document.querySelector('form');
             const searchBtn = document.getElementById('searchBtn');
@@ -486,13 +634,19 @@
 
             function buildQuery(extra){
                 const params = new URLSearchParams(window.location.search);
-                const formVals = {
-                    website: document.getElementById('website').value,
-                    search: document.getElementById('search').value,
-                    page_size: '{{ page_size }}',
-                    sources: hidden.value
-                };
-                Object.entries(formVals).forEach(([k,v])=>{ if(v!==undefined && v!==null) params.set(k, v); });
+                const tabType = '{{ tab_type }}';
+                
+                if (tabType === 'news') {
+                    const formVals = {
+                        website: document.getElementById('website')?.value,
+                        search: document.getElementById('search')?.value,
+                        page_size: '{{ page_size }}',
+                        sources: hidden?.value
+                    };
+                    Object.entries(formVals).forEach(([k,v])=>{ if(v!==undefined && v!==null) params.set(k, v); });
+                }
+                
+                params.set('tab', tabType);
                 if(extra) Object.entries(extra).forEach(([k,v])=> params.set(k, v));
                 return params.toString();
             }

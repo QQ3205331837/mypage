@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "wsgi.py",
       "use": "@vercel/python"
     },
     {
@@ -16,13 +16,23 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/image/(.*)",
+      "dest": "/static/image/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/app.py"
+      "dest": "/wsgi.py"
     }
   ],
   "env": {
     "PYTHONPATH": "/var/task",
     "FLASK_ENV": "production",
-    "PYTHON_VERSION": "3.9"
+    "PYTHON_VERSION": "3.9",
+    "SERVERLESS": "1"
+  },
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.9"
+    }
   }
 }

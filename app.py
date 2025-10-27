@@ -99,95 +99,287 @@ websites = {
     }
 }
 
+# 公司周报配置
+WECHAT_ALBUM_URL = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODA2ODMzNA==&action=getalbum&album_id=4180740440766726147#wechat_redirect"
+
+# 公司周报数据（从微信专栏实际抓取）
+company_reports = []
+
+def get_wechat_reports():
+    """获取微信专栏的公司周报内容（增强版）"""
+    try:
+        from enhanced_reports import enhanced_wechat_reports
+        reports = enhanced_wechat_reports()
+        return reports
+        
+    except Exception as e:
+        logger.error(f"获取微信专栏失败: {str(e)}")
+        return []  # 返回空列表，不使用示例数据
+        try:
+            with open('c:\\Users\\zhao\\Desktop\\pyLy\\news_web\\wechat_album.html', 'r', encoding='utf-8') as f:
+                local_html = f.read()
+            
+            # 调试：打印文件内容片段
+            print("=== 微信专栏HTML文件内容片段 ===")
+            print(local_html[:1000])
+            print("==============================")
+            
+            # 使用更精确的正则表达式匹配
+            # 先找到所有li元素，然后在每个li元素中提取data-title和data-link
+            li_pattern = r'<li[^>]*?class="album__list-item[\s\S]*?</li>'
+            li_matches = re.findall(li_pattern, local_html)
+            
+            print(f"📊 找到 {len(li_matches)} 个li元素")
+            
+            matches = []
+            for li_content in li_matches:
+                # 在每个li元素中提取data-title和data-link
+                title_match = re.search(r'data-title="([^"]+)"', li_content)
+                link_match = re.search(r'data-link="([^"]+)"', li_content)
+                
+                if title_match and link_match:
+                    matches.append((title_match.group(1), link_match.group(1)))
+            
+            print(f"=== 正则表达式匹配结果 ===")
+            print(f"找到 {len(matches)} 个匹配项")
+            for i, match in enumerate(matches[:3]):
+                print(f"匹配项 {i+1}: 标题='{match[0]}', 链接='{match[1]}'")
+            print("========================")
+            
+            for match in matches:
+                if len(match) >= 2:
+                    title = str(match[0])  # 确保title是字符串类型
+                    link = str(match[1])     # 确保link是字符串类型
+                    
+                    # 修复编码问题：将 \x26amp; 和 &amp; 替换为 &
+                    title = title.replace('\x26amp;', '&').replace('&amp;', '&')
+                    
+                    # 确保链接是完整的URL
+                    if link and not link.startswith('http'):
+                        link = 'https:' + link if link.startswith('//') else 'https://' + link
+                    
+                    if title and link and len(title) > 5:
+                        # 生成合理的发布日期（从最新到最旧）
+                        base_date = datetime.now()
+                        date_offset = len(reports) * 7  # 每周一篇
+                        report_date = (base_date - timedelta(days=date_offset)).strftime('%Y-%m-%d')
+                        
+                        reports.append({
+                            "title": title.strip(),
+                            "link": link.strip(),
+                            "date": report_date,
+                            "source": "公司周报"
+                        })
+        except Exception as e:
+            print(f"读取本地HTML文件失败: {str(e)}")
+        
+        # 方法2：如果方法1失败，使用在线抓取
+        if not reports:
+            try:
+                url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODA2ODMzNA==&action=getalbum&album_id=4180740440766726147#wechat_redirect"
+                response = requests.get(url, timeout=10)
+                html_content = response.text
+                
+                # 从在线HTML中提取标题和链接
+                article_patterns = [
+                    r'data-title="([^"]+)".*?data-link="([^"]+)"',
+                    r'data-title="([^"]+)"[^>]*data-link="([^"]+)"',
+                ]
+                
+                for pattern in article_patterns:
+                    matches = re.findall(pattern, html_content, re.DOTALL)
+                    if matches:
+                        for match in matches:
+                            if len(match) >= 2:
+                                title = str(match[0])  # 确保title是字符串类型
+                                link = str(match[1])     # 确保link是字符串类型
+                                
+                                # 修复编码问题：将 \x26amp; 和 &amp; 替换为 &
+                                title = title.replace('\x26amp;', '&').replace('&amp;', '&')
+                                
+                                # 确保链接是完整的URL
+                                if link and not link.startswith('http'):
+                                    link = 'https:' + link if link.startswith('//') else 'https://' + link
+                                
+                                if title and link and len(title) > 5:
+                                    # 生成合理的发布日期（从最新到最旧）
+                                    base_date = datetime.now()
+                                    date_offset = len(reports) * 7  # 每周一篇
+                                    report_date = (base_date - timedelta(days=date_offset)).strftime('%Y-%m-%d')
+                                    
+                                    reports.append({
+                                        "title": title.strip(),
+                                        "link": link.strip(),
+                                        "date": report_date,
+                                        "source": "公司周报"
+                                    })
+                        
+                        if reports:
+                            break
+            except Exception as e:
+                print(f"在线抓取失败: {str(e)}")
+        
+        # 如果所有方法都失败，返回空列表
+        if not reports:
+            reports = []
+        
+        # 打印调试信息
+        print("=== 公司周报数据抓取结果 ===")
+        print(f"抓取到的周报数量: {len(reports)}")
+        for i, report in enumerate(reports):
+            print(f"周报 {i+1}: {repr(report.get('title', ''))}")
+            print(f"     链接: {report.get('link', '')}")
+        print("==========================")
+        
+        return reports
+        
+    except Exception as e:
+        logger.error(f"获取微信专栏失败: {str(e)}")
+        return []  # 返回空列表，不使用示例数据
+
 ALL_SOURCES_LABEL = "全部来源"
 
 @app.route('/')
 def index():
-    # 默认显示人民网旅游频道的新闻
-    website = request.args.get('website', '人民网旅游频道')
-    sources_str = request.args.get('sources', '').strip()
-    selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
-    search_text = request.args.get('search', '')
+    # 获取选项卡类型：news（国内新闻）或 reports（公司周报）
+    tab_type = request.args.get('tab', 'news')
     
-    # 支持强制刷新 ?refresh=1
-    refresh = request.args.get('refresh', '0') == '1'
-    # 获取新闻数据（带缓存），支持聚合与多来源选择
-    if selected_sources:
-        valid_sources = [s for s in selected_sources if s in websites]
-        aggregated = []
-        for site in valid_sources:
-            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
-        # 去重（按链接）
+    # 如果是新闻选项卡，使用原有逻辑
+    if tab_type == 'news':
+        # 默认显示人民网旅游频道的新闻
+        website = request.args.get('website', '人民网旅游频道')
+        sources_str = request.args.get('sources', '').strip()
+        selected_sources = [s for s in [x.strip() for x in sources_str.split(',')] if s] if sources_str else []
+        search_text = request.args.get('search', '')
+        
+        # 支持强制刷新 ?refresh=1
+        refresh = request.args.get('refresh', '0') == '1'
+        # 获取新闻数据（带缓存），支持聚合与多来源选择
+        if selected_sources:
+            valid_sources = [s for s in selected_sources if s in websites]
+            aggregated = []
+            for site in valid_sources:
+                aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+            # 去重（按链接）
+            seen = set()
+            deduped = []
+            for item in aggregated:
+                link = item.get('link')
+                if link and link not in seen:
+                    seen.add(link)
+                    deduped.append(item)
+            deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+            news_data = deduped
+        elif website == ALL_SOURCES_LABEL:
+            # 聚合所有来源
+            aggregated = []
+            for site in websites.keys():
+                aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
+            # 去重（按链接）
+            seen = set()
+            deduped = []
+            for item in aggregated:
+                link = item.get('link')
+                if link and link not in seen:
+                    seen.add(link)
+                    deduped.append(item)
+            # 按日期倒序
+            deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
+            news_data = deduped
+        else:
+            news_data = get_news_with_cache(website, force_refresh=refresh)
+
+        # 去重（按链接），即使是单个网站也可能有重复
         seen = set()
         deduped = []
-        for item in aggregated:
+        for item in news_data:
             link = item.get('link')
             if link and link not in seen:
                 seen.add(link)
                 deduped.append(item)
-        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
         news_data = deduped
-    elif website == ALL_SOURCES_LABEL:
-        # 聚合所有来源
-        aggregated = []
-        for site in websites.keys():
-            aggregated.extend(get_news_with_cache(site, force_refresh=refresh))
-        # 去重（按链接）
-        seen = set()
-        deduped = []
-        for item in aggregated:
-            link = item.get('link')
-            if link and link not in seen:
-                seen.add(link)
-                deduped.append(item)
-        # 按日期倒序
-        deduped.sort(key=lambda x: x.get('date', ''), reverse=True)
-        news_data = deduped
-    else:
-        news_data = get_news_with_cache(website, force_refresh=refresh)
 
-    # 去重（按链接），即使是单个网站也可能有重复
-    seen = set()
-    deduped = []
-    for item in news_data:
-        link = item.get('link')
-        if link and link not in seen:
-            seen.add(link)
-            deduped.append(item)
-    news_data = deduped
+        # 公共过滤
+        news_data = filter_news(news_data, search_text)
+        
+        # 获取当前时间
+        now = datetime.now()
+        
+        # 分页参数
+        try:
+            page = int(request.args.get('page', '1'))
+            page_size = int(request.args.get('page_size', '12'))
+            page = max(page, 1)
+            page_size = max(min(page_size, 30), 6)
+        except Exception:
+            page, page_size = 1, 12
 
-    # 公共过滤
-    news_data = filter_news(news_data, search_text)
+        start = (page - 1) * page_size
+        end = start + page_size
+        paged_news = news_data[start:end]
+        total_pages = max((len(news_data) + page_size - 1) // page_size, 1)
+
+        return render_template('index.html', 
+                              news_data=paged_news, 
+                              websites=[ALL_SOURCES_LABEL] + list(websites.keys()), 
+                              current_website=website,
+                              search_text=search_text,
+                              selected_sources=','.join(selected_sources),
+                              news_count=len(news_data),
+                              page=page,
+                              page_size=page_size,
+                              total_pages=total_pages,
+                              now=now,
+                              metrics=_metrics['last_fetch'].get(website if website != ALL_SOURCES_LABEL else '聚合', None),
+                              tab_type=tab_type,
+                              company_reports=[])
     
-    # 获取当前时间
-    now = datetime.now()
-    
-    # 分页参数
-    try:
-        page = int(request.args.get('page', '1'))
-        page_size = int(request.args.get('page_size', '12'))
-        page = max(page, 1)
-        page_size = max(min(page_size, 30), 6)
-    except Exception:
-        page, page_size = 1, 12
+    # 如果是公司周报选项卡
+    elif tab_type == 'reports':
+        # 获取公司周报数据
+        reports_data = get_wechat_reports()
+        
+        # 调试信息：打印实际抓取到的数据
+        print("=== 公司周报数据调试信息 ===")
+        print(f"抓取到的周报数量: {len(reports_data)}")
+        for i, report in enumerate(reports_data[:3]):
+            print(f"周报 {i+1}:")
+            print(f"  标题: {repr(report.get('title', ''))}")
+            print(f"  链接: {report.get('link', '')}")
+            print(f"  日期: {report.get('date', '')}")
+        print("==========================")
+        
+        # 获取当前时间
+        now = datetime.now()
+        
+        # 分页参数
+        try:
+            page = int(request.args.get('page', '1'))
+            page_size = int(request.args.get('page_size', '12'))
+            page = max(page, 1)
+            page_size = max(min(page_size, 30), 6)
+        except Exception:
+            page, page_size = 1, 12
 
-    start = (page - 1) * page_size
-    end = start + page_size
-    paged_news = news_data[start:end]
-    total_pages = max((len(news_data) + page_size - 1) // page_size, 1)
+        start = (page - 1) * page_size
+        end = start + page_size
+        paged_reports = reports_data[start:end]
+        total_pages = max((len(reports_data) + page_size - 1) // page_size, 1)
 
-    return render_template('index.html', 
-                          news_data=paged_news, 
-                          websites=[ALL_SOURCES_LABEL] + list(websites.keys()), 
-                          current_website=website,
-                          search_text=search_text,
-                          selected_sources=','.join(selected_sources),
-                          news_count=len(news_data),
-                          page=page,
-                          page_size=page_size,
-                          total_pages=total_pages,
-                          now=now,
-                          metrics=_metrics['last_fetch'].get(website if website != ALL_SOURCES_LABEL else '聚合', None))
+        return render_template('index.html', 
+                              news_data=[], 
+                              websites=[ALL_SOURCES_LABEL] + list(websites.keys()), 
+                              current_website='公司周报',
+                              search_text='',
+                              selected_sources='',
+                              news_count=len(reports_data),
+                              page=page,
+                              page_size=page_size,
+                              total_pages=total_pages,
+                              now=now,
+                              metrics=None,
+                              tab_type=tab_type,
+                              company_reports=paged_reports)
 
 def filter_news(news_data, search_text):
     # 添加过滤前后的日志

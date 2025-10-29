@@ -57,7 +57,7 @@ def serve_image(filename):
     return send_from_directory(os.path.join(static_folder, 'image'), filename)
 
 # 简单内存缓存：key=(website), value={"data": list, "ts": epoch_seconds}
-CACHE_TTL_SECONDS = 600  # 10分钟
+CACHE_TTL_SECONDS = 60  # 1分钟，加快缓存刷新
 _cache = {}
 
 # 观测：抓取指标与错误日志（内存）
@@ -115,127 +115,7 @@ def get_wechat_reports():
     except Exception as e:
         logger.error(f"获取微信专栏失败: {str(e)}")
         return []  # 返回空列表，不使用示例数据
-        try:
-            with open('c:\\Users\\zhao\\Desktop\\pyLy\\news_web\\wechat_album.html', 'r', encoding='utf-8') as f:
-                local_html = f.read()
-            
-            # 调试：打印文件内容片段
-            print("=== 微信专栏HTML文件内容片段 ===")
-            print(local_html[:1000])
-            print("==============================")
-            
-            # 使用更精确的正则表达式匹配
-            # 先找到所有li元素，然后在每个li元素中提取data-title和data-link
-            li_pattern = r'<li[^>]*?class="album__list-item[\s\S]*?</li>'
-            li_matches = re.findall(li_pattern, local_html)
-            
-            print(f"📊 找到 {len(li_matches)} 个li元素")
-            
-            matches = []
-            for li_content in li_matches:
-                # 在每个li元素中提取data-title和data-link
-                title_match = re.search(r'data-title="([^"]+)"', li_content)
-                link_match = re.search(r'data-link="([^"]+)"', li_content)
-                
-                if title_match and link_match:
-                    matches.append((title_match.group(1), link_match.group(1)))
-            
-            print(f"=== 正则表达式匹配结果 ===")
-            print(f"找到 {len(matches)} 个匹配项")
-            for i, match in enumerate(matches[:3]):
-                print(f"匹配项 {i+1}: 标题='{match[0]}', 链接='{match[1]}'")
-            print("========================")
-            
-            for match in matches:
-                if len(match) >= 2:
-                    title = str(match[0])  # 确保title是字符串类型
-                    link = str(match[1])     # 确保link是字符串类型
-                    
-                    # 修复编码问题：将 \x26amp; 和 &amp; 替换为 &
-                    title = title.replace('\x26amp;', '&').replace('&amp;', '&')
-                    
-                    # 确保链接是完整的URL
-                    if link and not link.startswith('http'):
-                        link = 'https:' + link if link.startswith('//') else 'https://' + link
-                    
-                    if title and link and len(title) > 5:
-                        # 生成合理的发布日期（从最新到最旧）
-                        base_date = datetime.now()
-                        date_offset = len(reports) * 7  # 每周一篇
-                        report_date = (base_date - timedelta(days=date_offset)).strftime('%Y-%m-%d')
-                        
-                        reports.append({
-                            "title": title.strip(),
-                            "link": link.strip(),
-                            "date": report_date,
-                            "source": "公司周报"
-                        })
-        except Exception as e:
-            print(f"读取本地HTML文件失败: {str(e)}")
-        
-        # 方法2：如果方法1失败，使用在线抓取
-        if not reports:
-            try:
-                url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODA2ODMzNA==&action=getalbum&album_id=4180740440766726147#wechat_redirect"
-                response = requests.get(url, timeout=10)
-                html_content = response.text
-                
-                # 从在线HTML中提取标题和链接
-                article_patterns = [
-                    r'data-title="([^"]+)".*?data-link="([^"]+)"',
-                    r'data-title="([^"]+)"[^>]*data-link="([^"]+)"',
-                ]
-                
-                for pattern in article_patterns:
-                    matches = re.findall(pattern, html_content, re.DOTALL)
-                    if matches:
-                        for match in matches:
-                            if len(match) >= 2:
-                                title = str(match[0])  # 确保title是字符串类型
-                                link = str(match[1])     # 确保link是字符串类型
-                                
-                                # 修复编码问题：将 \x26amp; 和 &amp; 替换为 &
-                                title = title.replace('\x26amp;', '&').replace('&amp;', '&')
-                                
-                                # 确保链接是完整的URL
-                                if link and not link.startswith('http'):
-                                    link = 'https:' + link if link.startswith('//') else 'https://' + link
-                                
-                                if title and link and len(title) > 5:
-                                    # 生成合理的发布日期（从最新到最旧）
-                                    base_date = datetime.now()
-                                    date_offset = len(reports) * 7  # 每周一篇
-                                    report_date = (base_date - timedelta(days=date_offset)).strftime('%Y-%m-%d')
-                                    
-                                    reports.append({
-                                        "title": title.strip(),
-                                        "link": link.strip(),
-                                        "date": report_date,
-                                        "source": "公司周报"
-                                    })
-                        
-                        if reports:
-                            break
-            except Exception as e:
-                print(f"在线抓取失败: {str(e)}")
-        
-        # 如果所有方法都失败，返回空列表
-        if not reports:
-            reports = []
-        
-        # 打印调试信息
-        print("=== 公司周报数据抓取结果 ===")
-        print(f"抓取到的周报数量: {len(reports)}")
-        for i, report in enumerate(reports):
-            print(f"周报 {i+1}: {repr(report.get('title', ''))}")
-            print(f"     链接: {report.get('link', '')}")
-        print("==========================")
-        
-        return reports
-        
-    except Exception as e:
-        logger.error(f"获取微信专栏失败: {str(e)}")
-        return []  # 返回空列表，不使用示例数据
+
 
 ALL_SOURCES_LABEL = "全部来源"
 
@@ -742,6 +622,9 @@ def rss_feed():
     return Response(rss, mimetype='application/rss+xml; charset=utf-8')
 
 def get_news_with_cache(website, force_refresh=False):
+    # 支持URL参数强制刷新
+    if request.args.get('refresh') == 'true':
+        force_refresh = True
     now = time.time()
     cache_entry = _cache.get(website)
     if not force_refresh and cache_entry and (now - cache_entry["ts"]) < CACHE_TTL_SECONDS:
@@ -1380,4 +1263,4 @@ if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 else:
     # Vercel环境使用
-    application = app
+    application = app.wsgi_app

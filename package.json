@@ -4,7 +4,7 @@
   "description": "国内旅游资讯聚合网站 - Vercel部署版本",
   "main": "app.py",
   "scripts": {
-    "dev": "python app.py",
+    "dev": "vite",
     "start": "python app.py",
     "build": "echo 'No build step required for Python Flask app'"
   },

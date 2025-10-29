@@ -1262,5 +1262,5 @@ if __name__ == '__main__':
     print("Running in local environment")
     app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 else:
-    # Vercel环境使用
-    application = app.wsgi_app
+    # Vercel环境使用 - 直接使用app
+    application = app

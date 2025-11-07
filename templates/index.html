@@ -19,7 +19,8 @@
         }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: url("{{ url_for('static', filename='image/bg.png') }}") no-repeat center center fixed;
+            background-size: cover;
             font-family: 'Microsoft YaHei', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
             min-height: 100vh;
@@ -783,4 +784,5 @@
         });
     </script>
 </body>
+
 </html>
